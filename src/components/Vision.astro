@@ -1,60 +1,25 @@
----
-import { Image } from "astro:assets";
-import visionIce from "../assets/film-ice.jpg";
----
-
-<section class="vision section-pad" id="vision">
-  <div class="wrap vision-grid">
-    <div class="vision-visual media" data-fx="tilt">
-      <div class="ph" data-label="Pure, weightless, Novan"></div>
-      <Image
-        src={visionIce}
-        class="cover"
-        loading="lazy"
-        widths={[480, 800, 1200]}
-        sizes="(max-width: 880px) 100vw, 50vw"
-        alt="Novan bottle floating among ice cubes on deep blue"
-      />
+<section class="vision section" id="vision">
+  <div class="shell">
+    <div class="section-heading split-heading">
+      <div>
+        <p class="eyebrow reveal" data-en="OUR DIRECTION" data-ar="وجهتنا">OUR DIRECTION</p>
+        <h2 class="reveal d1" data-en="Built to earn a place in daily life." data-ar="صُممنا لنكون جزءاً من الحياة اليومية.">Built to earn a place in daily life.</h2>
+      </div>
+      <p class="lead reveal d2" data-en="A modern Yemeni water brand can be commercially strong and genuinely responsible at the same time." data-ar="يمكن لعلامة مياه يمنية حديثة أن تجمع بين القوة التجارية والمسؤولية الحقيقية في الوقت نفسه.">
+        A modern Yemeni water brand can be commercially strong and genuinely responsible at the same time.
+      </p>
     </div>
-    <div class="vision-body">
-      <div class="sec-head">
-        <span class="kicker" data-en="Vision &amp; Mission" data-ar="رؤيتنا ورسالتنا">Vision &amp; Mission</span>
-        <h2>
-          <span data-en="The leading name in " data-ar="العلامة الرائدة في ">The leading name in </span><span
-            class="accent"
-            data-en="pure water."
-            data-ar="المياه النقية.">pure water.</span
-          >
-        </h2>
-      </div>
-      <div class="vision-block reveal">
-        <h3 data-en="Our vision" data-ar="رؤيتنا">Our vision</h3>
-        <p
-          data-en="To become the leading mineral-water brand across Yemen and the regional markets — committed to innovation, sustainability and exceptional quality."
-          data-ar="أن نصبح العلامة التجارية الرائدة في صناعة وتوزيع المياه المعدنية على مستوى اليمن والأسواق الإقليمية، مع الالتزام بالابتكار والاستدامة والجودة الفائقة."
-        >
-          To become the leading mineral-water brand across Yemen and the regional markets — committed to
-          innovation, sustainability and exceptional quality.
-        </p>
-      </div>
-      <div class="vision-block reveal d1">
-        <h3 data-en="Our mission" data-ar="رسالتنا">Our mission</h3>
-        <p
-          data-en="Pure mineral water at the highest standards of quality — drawn from natural sources and treated with the latest technology, protecting consumer health while developing our community and supporting the Yemeni economy."
-          data-ar="تقديم مياه معدنية نقية بأعلى معايير الجودة، مستمدة من مصادر طبيعية ومعالجة بأحدث التقنيات العالمية، لضمان صحة وسلامة المستهلك مع تعزيز دورنا في تنمية المجتمع ودعم الاقتصاد اليمني."
-        >
-          Pure mineral water at the highest standards of quality — drawn from natural sources and treated
-          with the latest technology, protecting consumer health while developing our community and
-          supporting the Yemeni economy.
-        </p>
-      </div>
-      <div class="values-row reveal d2">
-        <span class="value-chip" data-en="Sustainable quality" data-ar="الجودة المستدامة">Sustainable quality</span>
-        <span class="value-chip" data-en="Transparency" data-ar="الشفافية">Transparency</span>
-        <span class="value-chip" data-en="Innovation" data-ar="الابتكار">Innovation</span>
-        <span class="value-chip" data-en="Environmental care" data-ar="الاستدامة البيئية">Environmental care</span>
-        <span class="value-chip" data-en="Women's empowerment" data-ar="تمكين المرأة">Women's empowerment</span>
-      </div>
+    <div class="vision-cards">
+      <article class="vision-card reveal">
+        <span class="card-label" data-en="VISION" data-ar="الرؤية">VISION</span>
+        <h3 data-en="A trusted name in mineral water." data-ar="اسم موثوق في عالم المياه المعدنية.">A trusted name in mineral water.</h3>
+        <p data-en="To grow Al Saqi into a leading water brand known for quality, continuity and a refined consumer experience." data-ar="أن تنمو الساقي لتصبح علامة رائدة معروفة بالجودة والاستمرارية وتجربة المستهلك الراقية.">To grow Al Saqi into a leading water brand known for quality, continuity and a refined consumer experience.</p>
+      </article>
+      <article class="vision-card vision-card-blue reveal d1">
+        <span class="card-label" data-en="MISSION" data-ar="الرسالة">MISSION</span>
+        <h3 data-en="Safe water. Professional delivery." data-ar="مياه آمنة. وتقديم احترافي.">Safe water. Professional delivery.</h3>
+        <p data-en="To produce natural mineral water to high standards and make it consistently available through capable distribution partners." data-ar="إنتاج مياه معدنية طبيعية بمعايير عالية وإتاحتها باستمرار عبر شركاء توزيع أكفاء.">To produce natural mineral water to high standards and make it consistently available through capable distribution partners.</p>
+      </article>
     </div>
   </div>
 </section>

@@ -1,96 +1,34 @@
 ---
 import { Image } from "astro:assets";
-import heritage from "../assets/story-heritage.jpg";
+import folderCover from "../assets/alsaqi-folder-cover.png";
 ---
 
-<section class="story section-pad" id="story">
-  <div class="wrap story-grid">
-    <div class="story-visual media" data-fx="tilt">
-      <div class="ph" data-label="Novan, carried with pride"></div>
-      <Image
-        src={heritage}
-        class="cover"
-        loading="lazy"
-        widths={[480, 800, 1200]}
-        sizes="(max-width: 880px) 100vw, 50vw"
-        alt="Novan bottle held with pride in traditional Yemeni dress"
-      />
-      <div class="story-figure">
-        <div class="n" data-en="2019" data-ar="٢٠١٩">2019</div>
-        <div class="t" data-en="Pure Yemeni water, 100% Yemeni capital, since" data-ar="مياه يمنية نقية برأس مال يمني 100% منذ">
-          Pure Yemeni water, 100% Yemeni capital, since
-        </div>
+<section class="story section" id="story">
+  <div class="shell story-grid">
+    <div class="story-copy">
+      <p class="eyebrow reveal" data-en="WHY AL SAQI" data-ar="لماذا الساقي">WHY AL SAQI</p>
+      <h2 class="reveal d1" data-en="Water with a clearer standard." data-ar="مياه بمعيار أكثر صفاءً.">Water with a clearer standard.</h2>
+      <p class="lead reveal d2" data-en="Al Saqi Mineral Water Factory brings together careful production, consistent quality and professional distribution to deliver water people can trust and businesses can rely on." data-ar="يجمع مصنع الساقي للمياه المعدنية بين الإنتاج الدقيق والجودة المستمرة والتوزيع الاحترافي لتقديم مياه يثق بها المستهلك ويعتمد عليها الشريك التجاري.">
+        Al Saqi Mineral Water Factory brings together careful production, consistent quality and professional distribution to deliver water people can trust and businesses can rely on.
+      </p>
+      <div class="story-principles">
+        <article class="reveal">
+          <span>01</span>
+          <div><h3 data-en="Quality" data-ar="الجودة">Quality</h3><p data-en="A clean, consistent experience in every bottle." data-ar="تجربة نقية ومتسقة في كل عبوة.">A clean, consistent experience in every bottle.</p></div>
+        </article>
+        <article class="reveal d1">
+          <span>02</span>
+          <div><h3 data-en="Continuity" data-ar="الاستمرارية">Continuity</h3><p data-en="Reliable production and supply for growing demand." data-ar="إنتاج وإمداد موثوقان لتلبية الطلب المتنامي.">Reliable production and supply for growing demand.</p></div>
+        </article>
+        <article class="reveal d2">
+          <span>03</span>
+          <div><h3 data-en="Trust" data-ar="الثقة">Trust</h3><p data-en="Clear value for consumers, traders and investors." data-ar="قيمة واضحة للمستهلك والتاجر والمستثمر.">Clear value for consumers, traders and investors.</p></div>
+        </article>
       </div>
     </div>
-    <div class="story-body">
-      <div class="sec-head">
-        <span class="kicker" data-en="Our Source" data-ar="مصدرنا">Our Source</span>
-        <h2>
-          <span data-en="Born of the " data-ar="من قلب ">Born of the </span><span
-            class="accent"
-            data-en="mountains."
-            data-ar="الجبال.">mountains.</span
-          >
-        </h2>
-        <p
-          data-en="In the highlands of Saada, far from pollution and urban sprawl, our protected natural source feeds a factory equipped with the latest purification and bottling technology — run by a team of qualified Yemeni experts, engineers and technicians."
-          data-ar="في مرتفعات صعدة، بعيداً عن مصادر التلوث والمنشآت الحضرية، يغذّي مصدرنا الطبيعي المحمي مصنعاً مجهزاً بأحدث تقنيات التنقية والتعبئة — يديره فريق من الخبراء والمهندسين والفنيين اليمنيين المؤهلين."
-        >
-          In the highlands of Saada, far from pollution and urban sprawl, our protected natural source feeds
-          a factory equipped with the latest purification and bottling technology — run by a team of
-          qualified Yemeni experts, engineers and technicians.
-        </p>
-      </div>
-      <div class="story-list">
-        <div class="story-feat reveal">
-          <span class="ico"
-            ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-              ><path d="M3 20h18L14 7l-3 5-2-2-6 10z"></path></svg
-            ></span
-          >
-          <div>
-            <h3 data-en="A protected aquifer" data-ar="طبقة جوفية محمية">A protected aquifer</h3>
-            <p
-              data-en="Sealed deep underground, far from surface contamination and industry."
-              data-ar="محميّة في أعماق الأرض، بعيداً عن أي تلوّث سطحي أو صناعي."
-            >
-              Sealed deep underground, far from surface contamination and industry.
-            </p>
-          </div>
-        </div>
-        <div class="story-feat reveal d1">
-          <span class="ico"
-            ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-              ><path d="M12 3v18M5 10l7-7 7 7"></path></svg
-            ></span
-          >
-          <div>
-            <h3 data-en="Balanced by nature" data-ar="متوازنة بالطبيعة">Balanced by nature</h3>
-            <p
-              data-en="A soft, low-mineral profile that tastes clean and never heavy."
-              data-ar="معادن منخفضة ومتوازنة تمنح مذاقاً نقياً لا يثقل أبداً."
-            >
-              A soft, low-mineral profile that tastes clean and never heavy.
-            </p>
-          </div>
-        </div>
-        <div class="story-feat reveal d2">
-          <span class="ico"
-            ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-              ><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"></path></svg
-            ></span
-          >
-          <div>
-            <h3 data-en="Guarded to the bottle" data-ar="محمية حتى التعبئة">Guarded to the bottle</h3>
-            <p
-              data-en="A sealed line carries the water from source to cap, untouched by hand."
-              data-ar="خط تعبئة محكم ينقل المياه من المصدر إلى الغطاء دون أي لمسة يد."
-            >
-              A sealed line carries the water from source to cap, untouched by hand.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <figure class="story-art reveal d1">
+      <Image src={folderCover} alt="Al Saqi blue and green brand identity" widths={[640, 1000, 1400]} sizes="(max-width: 900px) 100vw, 46vw" loading="lazy" />
+      <figcaption><strong>2026</strong><span data-en="A new standard begins" data-ar="معيار جديد يبدأ">A new standard begins</span></figcaption>
+    </figure>
   </div>
 </section>

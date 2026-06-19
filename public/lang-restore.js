@@ -4,7 +4,7 @@
    Only sets <html> lang/dir here; main.ts swaps the text on load. */
 (function () {
   try {
-    var saved = localStorage.getItem("novan-lang");
+    var saved = localStorage.getItem("alsaqi-lang");
     var lang = saved === "en" || saved === "ar" ? saved : null;
     if (!lang) {
       var locales =

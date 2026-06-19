@@ -1,46 +1,39 @@
----
-import { Image } from "astro:assets";
-import logo from "../assets/logo.png";
----
-
-<header class="header">
-  <div class="header-inner">
-    <a href="#top" class="brand" aria-label="Novan Water" data-aria-en="Novan Water" data-aria-ar="مياه نوفان">
-      <Image src={logo} alt="" class="brand-logo" height={100} densities={[1, 2]} loading="eager" />
+<header class="site-header" data-header>
+  <div class="header-shell">
+    <a class="brand" href="#top" aria-label="Al Saqi Mineral Water Factory" data-aria-en="Al Saqi Mineral Water Factory" data-aria-ar="مصنع الساقي للمياه المعدنية">
+      <span class="brand-drop" aria-hidden="true">
+        <svg viewBox="0 0 42 52" role="img"><path d="M21 2C15 12 5 23 5 34a16 16 0 0 0 32 0C37 23 27 12 21 2Z"/><path d="M13 34c4-6 10-9 18-9"/></svg>
+      </span>
+      <span class="brand-type">
+        <strong data-en="AL SAQI" data-ar="الساقي">AL SAQI</strong>
+        <small data-en="MINERAL WATER" data-ar="مياه معدنية">MINERAL WATER</small>
+      </span>
     </a>
 
-    <nav class="nav">
-      <div class="nav-links">
-        <a href="#story" data-en="Our Source" data-ar="مصدرنا">Our Source</a>
-        <a href="#range" data-en="The Range" data-ar="منتجاتنا">The Range</a>
-        <a href="#films" data-en="Films" data-ar="الأفلام">Films</a>
-        <a href="#process" data-en="Purity" data-ar="النقاء">Purity</a>
-        <a href="#community" data-en="Community" data-ar="المجتمع">Community</a>
-      </div>
-      <div class="nav-actions">
-        <div class="lang-toggle" role="group" aria-label="Language" data-aria-en="Language" data-aria-ar="اللغة">
-          <button data-lang="en" class="active" aria-pressed="true">EN</button>
-          <button data-lang="ar" aria-pressed="false">ع</button>
-        </div>
-        <a href="#contact" class="btn btn-primary" data-en="Partner with us" data-ar="كن شريكاً">Partner with us</a>
-        <button
-          class="menu-btn"
-          aria-label="Menu"
-          data-aria-en="Menu"
-          data-aria-ar="القائمة"
-          aria-expanded="false"
-          aria-controls="mobile-menu"><span></span><span></span><span></span></button>
-      </div>
+    <nav class="desktop-nav" aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-ar="التنقل الرئيسي">
+      <a href="#story" data-en="Our water" data-ar="مياهنا">Our water</a>
+      <a href="#range" data-en="Bottle sizes" data-ar="أحجام العبوات">Bottle sizes</a>
+      <a href="#quality" data-en="Quality" data-ar="الجودة">Quality</a>
+      <a href="#partners" data-en="Partners" data-ar="الشركاء">Partners</a>
     </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language" data-aria-en="Language" data-aria-ar="اللغة">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false">ع</button>
+      </div>
+      <a class="header-contact" href="#contact" data-en="Talk to sales" data-ar="تواصل مع المبيعات">Talk to sales</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-aria-en="Open menu" data-aria-ar="افتح القائمة">
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- mobile menu -->
-<div class="mobile-menu" id="mobile-menu">
-  <a href="#story" data-en="Our Source" data-ar="مصدرنا">Our Source</a>
-  <a href="#range" data-en="The Range" data-ar="منتجاتنا">The Range</a>
-  <a href="#films" data-en="Films" data-ar="الأفلام">Films</a>
-  <a href="#process" data-en="Purity" data-ar="النقاء">Purity</a>
-  <a href="#community" data-en="Community" data-ar="المجتمع">Community</a>
-  <a href="#contact" data-en="Partner with us" data-ar="كن شريكاً">Partner with us</a>
-</div>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-aria-en="Mobile navigation" data-aria-ar="تنقل الجوال">
+  <a href="#story" data-en="Our water" data-ar="مياهنا">Our water</a>
+  <a href="#range" data-en="Bottle sizes" data-ar="أحجام العبوات">Bottle sizes</a>
+  <a href="#quality" data-en="Quality" data-ar="الجودة">Quality</a>
+  <a href="#partners" data-en="Partners" data-ar="الشركاء">Partners</a>
+  <a href="#contact" data-en="Talk to sales" data-ar="تواصل مع المبيعات">Talk to sales</a>
+</nav>

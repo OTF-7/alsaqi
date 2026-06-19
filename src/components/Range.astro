@@ -1,107 +1,44 @@
----
-import { Image } from "astro:assets";
-/* TODO: per-SKU cut-outs coming from the client — 500ml duplicated for now */
-import cutout from "../assets/bottle-cutout-500.png";
-import hoverTable from "../assets/lifestyle-table.jpg";
-import hoverGlass from "../assets/lifestyle-glass.jpg";
-import hoverStill from "../assets/lifestyle-still.jpg";
-
-/* Novan range per the client brief — three SKUs:
-   1.2 L family · 750 ml everyday · 450 ml on the move */
-const products = [
-  {
-    delay: "",
-    name: "Novan 1200ml",
-    nameAr: "نوفان 1200 مل",
-    meta: "1.2 L · FAMILY",
-    metaAr: "1.2 لتر · عائلي",
-    hover: hoverTable,
-    hoverAlt: "Novan 1.2L bottles on a shared table",
-    desc: "For the family table and shared moments. Refilled, passed around, loved.",
-    descAr: "لمائدة العائلة ولحظات المشاركة. تُملأ وتُتداول ويُحبّها الجميع.",
-    tag: "For the family",
-    tagAr: "للعائلة",
-  },
-  {
-    delay: "d1",
-    name: "Novan 750ml",
-    nameAr: "نوفان 750 مل",
-    meta: "750 ML · EVERYDAY",
-    metaAr: "750 مل · يومي",
-    hover: hoverGlass,
-    hoverAlt: "Novan 750ml poured into a glass",
-    desc: "Our everyday bottle — the one that travels with you, desk to dinner.",
-    descAr: "عبوتنا اليومية — ترافقك من المكتب إلى المائدة.",
-    tag: "Everyday",
-    tagAr: "يومي",
-  },
-  {
-    delay: "d2",
-    name: "Novan 450ml",
-    nameAr: "نوفان 450 مل",
-    meta: "450 ML · ON THE MOVE",
-    metaAr: "450 مل · للتنقّل",
-    hover: hoverStill,
-    hoverAlt: "Novan 450ml on a calm blue surface",
-    desc: "Pocket-sized hydration — for the commute, the gym and the long day.",
-    descAr: "ترطيب بحجم الجيب — للتنقّل والنادي واليوم الطويل.",
-    tag: "On the move",
-    tagAr: "للتنقّل",
-  },
-] as const;
----
-
-<section class="range section-pad" id="range">
-  <div class="wrap">
-    <div class="range-head">
-      <div class="sec-head">
-        <span class="kicker reveal" data-en="The Range" data-ar="منتجاتنا">The Range</span>
-        <h2 class="reveal d1">
-          <span data-en="A size for every " data-ar="حجم لكل ">A size for every </span><span
-            class="accent"
-            data-en="moment."
-            data-ar="لحظة.">moment.</span
-          >
-        </h2>
+<section class="range section" id="range">
+  <div class="shell">
+    <div class="section-heading range-heading">
+      <div>
+        <p class="eyebrow reveal" data-en="THE RANGE" data-ar="منتجاتنا">THE RANGE</p>
+        <h2 class="reveal d1" data-en="The right bottle for the moment." data-ar="العبوة المناسبة لكل لحظة.">The right bottle for the moment.</h2>
       </div>
-      <a href="#contact" class="link-arrow reveal d2"
-        ><span data-en="Request the full catalogue" data-ar="اطلب الكتالوج الكامل">Request the full catalogue</span>
-        <span class="arrow">→</span></a
-      >
+      <p class="reveal d2" data-en="Choose a size to see where it fits best." data-ar="اختر الحجم لتعرف أين يناسبك أكثر.">Choose a size to see where it fits best.</p>
     </div>
 
-    <div class="range-grid">
-      {
-        products.map((p) => (
-          <article class={`product reveal ${p.delay}`}>
-            <div class="product-img">
-              <div class="bottle-art" aria-hidden="true">
-                <Image src={cutout} alt="" widths={[320, 560]} sizes="(max-width: 560px) 45vw, 320px" />
-              </div>
-              <Image
-                class="cover alt"
-                loading="lazy"
-                widths={[480, 700]}
-                sizes="(max-width: 560px) 50vw, (max-width: 1080px) 45vw, 320px"
-                alt={p.hoverAlt}
-                src={p.hover}
-              />
-            </div>
-            <div class="pname" data-en={p.name} data-ar={p.nameAr}>
-              {p.name}
-            </div>
-            <div class="pmeta" data-en={p.meta} data-ar={p.metaAr}>
-              {p.meta}
-            </div>
-            <p class="pdesc" data-en={p.desc} data-ar={p.descAr}>
-              {p.desc}
-            </p>
-            <span class="ptag" data-en={p.tag} data-ar={p.tagAr}>
-              {p.tag}
-            </span>
-          </article>
-        ))
-      }
+    <div class="size-experience">
+      <div class="size-stage" id="size-stage" data-size="750">
+        <div class="stage-grid" aria-hidden="true"></div>
+        <div class="bottle" aria-hidden="true">
+          <div class="bottle-cap"></div>
+          <div class="bottle-neck"></div>
+          <div class="bottle-body">
+            <div class="bottle-ribs"></div>
+            <div class="bottle-label"><small>مياه</small><strong>الساقي</strong><span data-bottle-size>750 ml</span></div>
+          </div>
+        </div>
+        <div class="size-measure" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+
+      <div class="size-panel">
+        <div class="size-tabs" role="tablist" aria-label="Bottle sizes" data-aria-en="Bottle sizes" data-aria-ar="أحجام العبوات">
+          <button type="button" role="tab" data-size-option="330" data-use-en="Compact refreshment for meetings, events and life on the move." data-use-ar="انتعاش عملي للاجتماعات والفعاليات والحركة اليومية." aria-selected="false">
+            <strong>330 ml</strong><span data-en="On the move" data-ar="للتنقل">On the move</span>
+          </button>
+          <button type="button" role="tab" data-size-option="750" data-use-en="A balanced everyday bottle for the desk, table and shared meal." data-use-ar="عبوة يومية متوازنة للمكتب والمائدة والوجبات المشتركة." aria-selected="true">
+            <strong>750 ml</strong><span data-en="Everyday" data-ar="يومي">Everyday</span>
+          </button>
+          <button type="button" role="tab" data-size-option="1200" data-use-en="Generous hydration for family tables, hospitality and longer gatherings." data-use-ar="حجم وافر لمائدة العائلة والضيافة والجلسات الطويلة." aria-selected="false">
+            <strong>1200 ml</strong><span data-en="For sharing" data-ar="للمشاركة">For sharing</span>
+          </button>
+        </div>
+        <div class="size-readout">
+          <p class="eyebrow" data-en="SELECTED EXPERIENCE" data-ar="الاستخدام المختار">SELECTED EXPERIENCE</p>
+          <p id="size-readout" data-en="A balanced everyday bottle for the desk, table and shared meal." data-ar="عبوة يومية متوازنة للمكتب والمائدة والوجبات المشتركة.">A balanced everyday bottle for the desk, table and shared meal.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

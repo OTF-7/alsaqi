@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "novan",
+      name: "alsaqi",
       script: "npm",
       args: "run preview",
       cwd: __dirname,
