@@ -1,0 +1,24 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.env
+.env.*
+
+# os
+.DS_Store
+
+# pm2 runtime logs
+logs/
+
+# local tooling
+.claude/
+
+# design handoff artifacts (kept locally for reference)
+design_bundle/
+design_response.txt
+design_decoded.txt

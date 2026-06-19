@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+---
+
+<header class="header">
+  <div class="header-inner">
+    <a href="#top" class="brand" aria-label="Novan Water" data-aria-en="Novan Water" data-aria-ar="مياه نوفان">
+      <Image src={logo} alt="" class="brand-logo" height={100} densities={[1, 2]} loading="eager" />
+    </a>
+
+    <nav class="nav">
+      <div class="nav-links">
+        <a href="#story" data-en="Our Source" data-ar="مصدرنا">Our Source</a>
+        <a href="#range" data-en="The Range" data-ar="منتجاتنا">The Range</a>
+        <a href="#films" data-en="Films" data-ar="الأفلام">Films</a>
+        <a href="#process" data-en="Purity" data-ar="النقاء">Purity</a>
+        <a href="#community" data-en="Community" data-ar="المجتمع">Community</a>
+      </div>
+      <div class="nav-actions">
+        <div class="lang-toggle" role="group" aria-label="Language" data-aria-en="Language" data-aria-ar="اللغة">
+          <button data-lang="en" class="active" aria-pressed="true">EN</button>
+          <button data-lang="ar" aria-pressed="false">ع</button>
+        </div>
+        <a href="#contact" class="btn btn-primary" data-en="Partner with us" data-ar="كن شريكاً">Partner with us</a>
+        <button
+          class="menu-btn"
+          aria-label="Menu"
+          data-aria-en="Menu"
+          data-aria-ar="القائمة"
+          aria-expanded="false"
+          aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#story" data-en="Our Source" data-ar="مصدرنا">Our Source</a>
+  <a href="#range" data-en="The Range" data-ar="منتجاتنا">The Range</a>
+  <a href="#films" data-en="Films" data-ar="الأفلام">Films</a>
+  <a href="#process" data-en="Purity" data-ar="النقاء">Purity</a>
+  <a href="#community" data-en="Community" data-ar="المجتمع">Community</a>
+  <a href="#contact" data-en="Partner with us" data-ar="كن شريكاً">Partner with us</a>
+</div>

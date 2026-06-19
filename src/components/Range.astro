@@ -1,0 +1,107 @@
+---
+import { Image } from "astro:assets";
+/* TODO: per-SKU cut-outs coming from the client — 500ml duplicated for now */
+import cutout from "../assets/bottle-cutout-500.png";
+import hoverTable from "../assets/lifestyle-table.jpg";
+import hoverGlass from "../assets/lifestyle-glass.jpg";
+import hoverStill from "../assets/lifestyle-still.jpg";
+
+/* Novan range per the client brief — three SKUs:
+   1.2 L family · 750 ml everyday · 450 ml on the move */
+const products = [
+  {
+    delay: "",
+    name: "Novan 1200ml",
+    nameAr: "نوفان 1200 مل",
+    meta: "1.2 L · FAMILY",
+    metaAr: "1.2 لتر · عائلي",
+    hover: hoverTable,
+    hoverAlt: "Novan 1.2L bottles on a shared table",
+    desc: "For the family table and shared moments. Refilled, passed around, loved.",
+    descAr: "لمائدة العائلة ولحظات المشاركة. تُملأ وتُتداول ويُحبّها الجميع.",
+    tag: "For the family",
+    tagAr: "للعائلة",
+  },
+  {
+    delay: "d1",
+    name: "Novan 750ml",
+    nameAr: "نوفان 750 مل",
+    meta: "750 ML · EVERYDAY",
+    metaAr: "750 مل · يومي",
+    hover: hoverGlass,
+    hoverAlt: "Novan 750ml poured into a glass",
+    desc: "Our everyday bottle — the one that travels with you, desk to dinner.",
+    descAr: "عبوتنا اليومية — ترافقك من المكتب إلى المائدة.",
+    tag: "Everyday",
+    tagAr: "يومي",
+  },
+  {
+    delay: "d2",
+    name: "Novan 450ml",
+    nameAr: "نوفان 450 مل",
+    meta: "450 ML · ON THE MOVE",
+    metaAr: "450 مل · للتنقّل",
+    hover: hoverStill,
+    hoverAlt: "Novan 450ml on a calm blue surface",
+    desc: "Pocket-sized hydration — for the commute, the gym and the long day.",
+    descAr: "ترطيب بحجم الجيب — للتنقّل والنادي واليوم الطويل.",
+    tag: "On the move",
+    tagAr: "للتنقّل",
+  },
+] as const;
+---
+
+<section class="range section-pad" id="range">
+  <div class="wrap">
+    <div class="range-head">
+      <div class="sec-head">
+        <span class="kicker reveal" data-en="The Range" data-ar="منتجاتنا">The Range</span>
+        <h2 class="reveal d1">
+          <span data-en="A size for every " data-ar="حجم لكل ">A size for every </span><span
+            class="accent"
+            data-en="moment."
+            data-ar="لحظة.">moment.</span
+          >
+        </h2>
+      </div>
+      <a href="#contact" class="link-arrow reveal d2"
+        ><span data-en="Request the full catalogue" data-ar="اطلب الكتالوج الكامل">Request the full catalogue</span>
+        <span class="arrow">→</span></a
+      >
+    </div>
+
+    <div class="range-grid">
+      {
+        products.map((p) => (
+          <article class={`product reveal ${p.delay}`}>
+            <div class="product-img">
+              <div class="bottle-art" aria-hidden="true">
+                <Image src={cutout} alt="" widths={[320, 560]} sizes="(max-width: 560px) 45vw, 320px" />
+              </div>
+              <Image
+                class="cover alt"
+                loading="lazy"
+                widths={[480, 700]}
+                sizes="(max-width: 560px) 50vw, (max-width: 1080px) 45vw, 320px"
+                alt={p.hoverAlt}
+                src={p.hover}
+              />
+            </div>
+            <div class="pname" data-en={p.name} data-ar={p.nameAr}>
+              {p.name}
+            </div>
+            <div class="pmeta" data-en={p.meta} data-ar={p.metaAr}>
+              {p.meta}
+            </div>
+            <p class="pdesc" data-en={p.desc} data-ar={p.descAr}>
+              {p.desc}
+            </p>
+            <span class="ptag" data-en={p.tag} data-ar={p.tagAr}>
+              {p.tag}
+            </span>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

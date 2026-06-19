@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import heritage from "../assets/story-heritage.jpg";
+---
+
+<section class="story section-pad" id="story">
+  <div class="wrap story-grid">
+    <div class="story-visual media" data-fx="tilt">
+      <div class="ph" data-label="Novan, carried with pride"></div>
+      <Image
+        src={heritage}
+        class="cover"
+        loading="lazy"
+        widths={[480, 800, 1200]}
+        sizes="(max-width: 880px) 100vw, 50vw"
+        alt="Novan bottle held with pride in traditional Yemeni dress"
+      />
+      <div class="story-figure">
+        <div class="n" data-en="2019" data-ar="٢٠١٩">2019</div>
+        <div class="t" data-en="Pure Yemeni water, 100% Yemeni capital, since" data-ar="مياه يمنية نقية برأس مال يمني 100% منذ">
+          Pure Yemeni water, 100% Yemeni capital, since
+        </div>
+      </div>
+    </div>
+    <div class="story-body">
+      <div class="sec-head">
+        <span class="kicker" data-en="Our Source" data-ar="مصدرنا">Our Source</span>
+        <h2>
+          <span data-en="Born of the " data-ar="من قلب ">Born of the </span><span
+            class="accent"
+            data-en="mountains."
+            data-ar="الجبال.">mountains.</span
+          >
+        </h2>
+        <p
+          data-en="In the highlands of Saada, far from pollution and urban sprawl, our protected natural source feeds a factory equipped with the latest purification and bottling technology — run by a team of qualified Yemeni experts, engineers and technicians."
+          data-ar="في مرتفعات صعدة، بعيداً عن مصادر التلوث والمنشآت الحضرية، يغذّي مصدرنا الطبيعي المحمي مصنعاً مجهزاً بأحدث تقنيات التنقية والتعبئة — يديره فريق من الخبراء والمهندسين والفنيين اليمنيين المؤهلين."
+        >
+          In the highlands of Saada, far from pollution and urban sprawl, our protected natural source feeds
+          a factory equipped with the latest purification and bottling technology — run by a team of
+          qualified Yemeni experts, engineers and technicians.
+        </p>
+      </div>
+      <div class="story-list">
+        <div class="story-feat reveal">
+          <span class="ico"
+            ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              ><path d="M3 20h18L14 7l-3 5-2-2-6 10z"></path></svg
+            ></span
+          >
+          <div>
+            <h3 data-en="A protected aquifer" data-ar="طبقة جوفية محمية">A protected aquifer</h3>
+            <p
+              data-en="Sealed deep underground, far from surface contamination and industry."
+              data-ar="محميّة في أعماق الأرض، بعيداً عن أي تلوّث سطحي أو صناعي."
+            >
+              Sealed deep underground, far from surface contamination and industry.
+            </p>
+          </div>
+        </div>
+        <div class="story-feat reveal d1">
+          <span class="ico"
+            ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              ><path d="M12 3v18M5 10l7-7 7 7"></path></svg
+            ></span
+          >
+          <div>
+            <h3 data-en="Balanced by nature" data-ar="متوازنة بالطبيعة">Balanced by nature</h3>
+            <p
+              data-en="A soft, low-mineral profile that tastes clean and never heavy."
+              data-ar="معادن منخفضة ومتوازنة تمنح مذاقاً نقياً لا يثقل أبداً."
+            >
+              A soft, low-mineral profile that tastes clean and never heavy.
+            </p>
+          </div>
+        </div>
+        <div class="story-feat reveal d2">
+          <span class="ico"
+            ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              ><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"></path></svg
+            ></span
+          >
+          <div>
+            <h3 data-en="Guarded to the bottle" data-ar="محمية حتى التعبئة">Guarded to the bottle</h3>
+            <p
+              data-en="A sealed line carries the water from source to cap, untouched by hand."
+              data-ar="خط تعبئة محكم ينقل المياه من المصدر إلى الغطاء دون أي لمسة يد."
+            >
+              A sealed line carries the water from source to cap, untouched by hand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

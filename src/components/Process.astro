@@ -1,0 +1,172 @@
+---
+import { Image } from "astro:assets";
+import purityIce from "../assets/purity-ice.jpg";
+---
+
+<section class="process section-pad" id="process">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="kicker reveal" data-en="Purity" data-ar="النقاء">Purity</span>
+      <h2 class="reveal d1">
+        <span data-en="From the source, " data-ar="من المصدر، ">From the source, </span><span
+          class="accent"
+          data-en="to the seal."
+          data-ar="إلى الختم.">to the seal.</span
+        >
+      </h2>
+      <p
+        class="reveal d2"
+        data-en="Multi-stage filtration, UV purification and ozone treatment — verified by precise daily testing against international health standards, in our own laboratory."
+        data-ar="ترشيح متعدد المراحل وتنقية بالأشعة فوق البنفسجية ومعالجة بالأوزون — تتحقق منها فحوصات دقيقة يومية وفق المواصفات الصحية العالمية في مختبرنا الخاص."
+      >
+        Multi-stage filtration, UV purification and ozone treatment — verified by precise daily testing
+        against international health standards, in our own laboratory.
+      </p>
+    </div>
+
+    <div class="process-visual media" data-fx="rise">
+      <div class="ph" data-label="Cold. Clean. Sealed."></div>
+      <Image
+        src={purityIce}
+        class="cover"
+        loading="lazy"
+        widths={[768, 1280, 1800]}
+        sizes="(max-width: 880px) 100vw, 80vw"
+        alt="A Novan bottle buried in crushed ice"
+      />
+    </div>
+
+    <div class="process-grid">
+      <div class="step reveal">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><path d="M12 2C12 2 5 9 5 14a7 7 0 0014 0c0-5-7-12-7-12z"></path></svg
+          ></span
+        >
+        <h3 data-en="Sourced" data-ar="الاستخراج">Sourced</h3>
+        <p
+          data-en="Drawn from a protected deep aquifer beneath the highlands."
+          data-ar="تُستخرج من طبقة جوفية عميقة محمية أسفل المرتفعات."
+        >
+          Drawn from a protected deep aquifer beneath the highlands.
+        </p>
+      </div>
+      <div class="step reveal d1">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><path d="M3 4h18l-7 8v6l-4 2v-8z"></path></svg
+          ></span
+        >
+        <h3 data-en="Filtered" data-ar="التنقية والتصفية">Filtered</h3>
+        <p
+          data-en="Micro-filtration and reverse osmosis strip the water of the finest impurities."
+          data-ar="ترشيح دقيق وتناضح عكسي يزيلان أدق الشوائب من المياه."
+        >
+          Micro-filtration and reverse osmosis strip the water of the finest impurities.
+        </p>
+      </div>
+      <div class="step reveal d2">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><path d="M9 2h6l-1 5h-4z"></path><rect x="6" y="7" width="12" height="15" rx="2"></rect><path
+              d="M9 7v15M15 7v15"></path></svg
+          ></span
+        >
+        <h3 data-en="Bottled" data-ar="تعبئة المياه">Bottled</h3>
+        <p
+          data-en="Filled on a fully automated, sealed production line untouched by hand."
+          data-ar="تُعبّأ على خط إنتاجي آلي بالكامل ومحكم الإغلاق بعيداً عن أي لمسة يد."
+        >
+          Filled on a fully automated, sealed production line untouched by hand.
+        </p>
+      </div>
+      <div class="step reveal d3">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><circle cx="12" cy="12" r="9"></circle><path d="M8 12l3 3 5-6"></path></svg
+          ></span
+        >
+        <h3 data-en="Sealed" data-ar="الختم">Sealed</h3>
+        <p
+          data-en="Hermetically sealed to lock in freshness, taste and purity."
+          data-ar="ختم محكم يحفظ النضارة والمذاق والنقاء في الداخل."
+        >
+          Hermetically sealed to lock in freshness, taste and purity.
+        </p>
+      </div>
+      <div class="step reveal">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><path d="M9 3h6v3l-1 1v2a4 4 0 11-4 0V7L9 6z"></path><path d="M7 14h10"></path></svg
+          ></span
+        >
+        <h3 data-en="Lab tested" data-ar="الفحص المختبري">Lab tested</h3>
+        <p
+          data-en="Every batch is verified in our in-house laboratory against international standards."
+          data-ar="كل دفعة تُفحص في مختبرنا الخاص وفق المعايير الدولية."
+        >
+          Every batch is verified in our in-house laboratory against international standards.
+        </p>
+      </div>
+      <div class="step reveal d1">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><path d="M3 7l9-4 9 4v10l-9 4-9-4z"></path><path d="M3 7l9 4 9-4M12 11v10"></path></svg
+          ></span
+        >
+        <h3 data-en="Packaged" data-ar="التغليف">Packaged</h3>
+        <p
+          data-en="Shrink-wrapped and packed with care, ready for safe handling and transport."
+          data-ar="تُغلّف وتُعبّأ بعناية لتكون جاهزة للتداول والنقل بأمان."
+        >
+          Shrink-wrapped and packed with care, ready for safe handling and transport.
+        </p>
+      </div>
+      <div class="step reveal d2">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><rect x="2" y="8" width="13" height="9" rx="1"></rect><path d="M15 11h4l2 3v3h-6z"></path><circle
+              cx="6"
+              cy="18"
+              r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg
+          ></span
+        >
+        <h3 data-en="Distributed" data-ar="النقل والتوزيع">Distributed</h3>
+        <p
+          data-en="Transported in our own fleet to retailers, hotels and restaurants nationwide."
+          data-ar="يُنقل بأسطولنا الخاص إلى المتاجر والفنادق والمطاعم في كل أنحاء البلاد."
+        >
+          Transported in our own fleet to retailers, hotels and restaurants nationwide.
+        </p>
+      </div>
+      <div class="step reveal d3">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><path d="M3 21V9l9-5 9 5v12"></path><path d="M9 21v-7h6v7"></path></svg
+          ></span
+        >
+        <h3 data-en="Stored" data-ar="التخزين">Stored</h3>
+        <p
+          data-en="Held in climate-controlled warehouses until the moment of dispatch."
+          data-ar="تُخزّن في مستودعات مكيفة الحرارة إلى حين موعد الشحن."
+        >
+          Held in climate-controlled warehouses until the moment of dispatch.
+        </p>
+      </div>
+      <div class="step reveal">
+        <span class="ico"
+          ><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+            ><path d="M5 11h14l-1 9H6z"></path><path d="M8 11V7a4 4 0 018 0v4"></path></svg
+          ></span
+        >
+        <h3 data-en="Delivered" data-ar="وصولها للمستهلك">Delivered</h3>
+        <p
+          data-en="Arrives fresh on your table — ready to pour, ready to enjoy."
+          data-ar="تصل إلى مائدتك طازجة — جاهزة للصبّ والاستمتاع."
+        >
+          Arrives fresh on your table — ready to pour, ready to enjoy.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

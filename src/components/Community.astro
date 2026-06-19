@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets";
+import imgJobs from "../assets/film-box.jpg";
+import imgInitiatives from "../assets/lifestyle-table.jpg";
+import imgWomen from "../assets/film-family.jpg"; /* TODO: replace with a real women-at-work photo from the client */
+
+const cards = [
+  {
+    delay: "",
+    phLabel: "Yemeni talent",
+    img: imgJobs,
+    alt: "Hands offering Novan water from a box",
+    tag: "Local talent",
+    tagAr: "كوادر يمنية",
+    title: "Jobs for Yemeni hands",
+    titleAr: "فرص عمل للكوادر اليمنية",
+    desc: "Empowering local engineers and technicians with real opportunities and continuous training.",
+    descAr: "نُمكّن المهندسين والفنيين المحليين بفرص عمل حقيقية وتدريب مستمر.",
+  },
+  {
+    delay: "d1",
+    phLabel: "Community initiatives",
+    img: imgInitiatives,
+    alt: "A shared table with Novan bottles",
+    tag: "Initiatives",
+    tagAr: "مبادرات",
+    title: "Giving, done seriously",
+    titleAr: "عطاء بمنهجية",
+    desc: "Social initiatives planned and delivered with partner institutions across the community.",
+    descAr: "مبادرات اجتماعية تُقيَّم وتُنفَّذ بدقة بالتعاون مع المؤسسات المختلفة لدعم المجتمع.",
+  },
+  {
+    delay: "d2",
+    phLabel: "Women's empowerment",
+    img: imgWomen,
+    alt: "Novan bottles of every size standing together",
+    tag: "Empowerment",
+    tagAr: "تمكين",
+    title: "Women, inside and out",
+    titleAr: "تمكين المرأة",
+    desc: "Supporting women's role across the factory and beyond — a core value, not a slogan.",
+    descAr: "ندعم دور المرأة ونمكّنها في مختلف المجالات داخل المصنع وخارجه — قيمة أساسية لا شعاراً.",
+  },
+];
+---
+
+<section class="comm section-pad" id="community">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="kicker reveal" data-en="Community" data-ar="المجتمع">Community</span>
+      <h2 class="reveal d1">
+        <span data-en="Water is " data-ar="الماء ">Water is </span><span
+          class="accent"
+          data-en="meant to be shared."
+          data-ar="يُقصد به أن يُشارَك.">meant to be shared.</span
+        >
+      </h2>
+    </div>
+
+    <div class="comm-grid">
+      {
+        cards.map((c) => (
+          <article class={`comm-card reveal ${c.delay}`}>
+            <div class="cimg media">
+              <div class="ph" data-label={c.phLabel} />
+              <Image
+                class="cover"
+                loading="lazy"
+                widths={[480, 800]}
+                sizes="(max-width: 880px) 100vw, 33vw"
+                alt={c.alt}
+                src={c.img}
+              />
+            </div>
+            <div class="cbody">
+              <span class="ctag" data-en={c.tag} data-ar={c.tagAr}>
+                {c.tag}
+              </span>
+              <h3 data-en={c.title} data-ar={c.titleAr}>
+                {c.title}
+              </h3>
+              <p data-en={c.desc} data-ar={c.descAr}>
+                {c.desc}
+              </p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
