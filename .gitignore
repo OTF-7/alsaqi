@@ -17,6 +17,7 @@ logs/
 
 # local tooling
 .claude/
+.superpowers/
 
 # design handoff artifacts (kept locally for reference)
 design_bundle/
