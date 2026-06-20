@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import { values } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+
+const valueList = Object.values(values);
+---
+
+<section class="institutional-values current-section">
+  <div class="current-shell values-heading">
+    <div><div class="chapter-label chapter-label-light"><span>07</span><span data-en="WHAT HOLDS US" data-ar="ما يثبت خطانا">WHAT HOLDS US</span></div>
+      <h2 data-en="Six values. One operating standard." data-ar="ست قيم… ومعيار واحد للعمل.">Six values. One operating standard.</h2>
+    </div>
+    <p data-en="The principles behind every product, relationship, and next move." data-ar="مبادئ تحكم كل منتج، وكل علاقة، وكل خطوة قادمة.">The principles behind every product, relationship, and next move.</p>
+  </div>
+  <div class="current-shell values-stage">
+    <figure><Image src={alsaqiImages.boardroom.src} alt={alsaqiImages.boardroom.alt.en} data-alt-en={alsaqiImages.boardroom.alt.en} data-alt-ar={alsaqiImages.boardroom.alt.ar} widths={[760, 1200]} sizes="(max-width: 900px) 100vw, 45vw" loading="lazy" /></figure>
+    <div class="institutional-orbit">
+      <div class="orbit-core"><small>AL SAQI</small><strong data-en="Built on clarity" data-ar="نبني بوضوح">Built on clarity</strong></div>
+      {valueList.map((value, index) => (
+        <article data-value-card style={`--value-index:${index}`}>
+          <span>0{index + 1}</span><h3 data-en={value.title.en} data-ar={value.title.ar}>{value.title.en}</h3><p data-en={value.text.en} data-ar={value.text.ar}>{value.text.en}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

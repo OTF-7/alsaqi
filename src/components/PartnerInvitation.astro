@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+---
+
+<section class="partner-invitation current-section" id="partners" data-partner-invitation>
+  <div class="partner-images" aria-hidden="true">
+    <figure><Image src={alsaqiImages.partnershipOpportunity.src} alt="" widths={[900, 1500]} sizes="65vw" loading="lazy" /></figure>
+    <figure><Image src={alsaqiImages.retailCrown.src} alt="" widths={[700, 1100]} sizes="45vw" loading="lazy" /></figure>
+  </div>
+  <div class="current-shell partner-copy">
+    <p class="current-eyebrow" data-en="AN OPEN INVITATION" data-ar="دعوة مفتوحة">AN OPEN INVITATION</p>
+    <h2 data-en={alsaqiContent.growth.close.en} data-ar={alsaqiContent.growth.close.ar}>{alsaqiContent.growth.close.en}</h2>
+    <p data-en={alsaqiContent.growth.invitation.en} data-ar={alsaqiContent.growth.invitation.ar}>{alsaqiContent.growth.invitation.en}</p>
+    <div class="partner-actions">
+      <a class="partner-button" href="mailto:info@alsaqiwater.com"><span data-en="Start a conversation" data-ar="ابدأ الحديث معنا">Start a conversation</span><b aria-hidden="true">↗</b></a>
+      <a href="tel:779779630"><small data-en="DIRECT LINE" data-ar="الرقم المباشر">DIRECT LINE</small><strong>779779630</strong></a>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,6 @@
 import { initAudienceLens } from "./audience-lens";
 import { initFactoryConveyor } from "./factory-conveyor";
+import { initMarketRunway } from "./market-runway";
 import { initProductTheatre } from "./product-theatre";
 
 type Language = "en" | "ar";
@@ -107,3 +108,4 @@ setLanguage(currentLanguage());
 initProductTheatre();
 initAudienceLens();
 initFactoryConveyor();
+initMarketRunway();

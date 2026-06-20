@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent, responsibilityPillars } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+
+const pillars = [
+  { key: "ENV", title: { en: "Environment", ar: "البيئة" }, text: responsibilityPillars.environment },
+  { key: "HLT", title: { en: "Health", ar: "الصحة" }, text: responsibilityPillars.health },
+  { key: "COM", title: { en: "Community", ar: "المجتمع" }, text: responsibilityPillars.community },
+  { key: "ECO", title: { en: "Economy", ar: "الاقتصاد" }, text: responsibilityPillars.economy },
+];
+---
+
+<section class="responsibility-matrix current-section" id="responsibility">
+  <figure class="responsibility-backdrop"><Image src={alsaqiImages.responsibilityWorld.src} alt={alsaqiImages.responsibilityWorld.alt.en} data-alt-en={alsaqiImages.responsibilityWorld.alt.en} data-alt-ar={alsaqiImages.responsibilityWorld.alt.ar} widths={[1000, 1600, 2200]} sizes="100vw" loading="lazy" /></figure>
+  <div class="current-shell responsibility-content">
+    <div class="chapter-label chapter-label-light"><span>08</span><span data-en="SHARED RESPONSIBILITY" data-ar="مسؤولية مشتركة">SHARED RESPONSIBILITY</span></div>
+    <h2 data-en={alsaqiContent.responsibility.title.en} data-ar={alsaqiContent.responsibility.title.ar}>{alsaqiContent.responsibility.title.en}</h2>
+    <div class="responsibility-grid">
+      {pillars.map((pillar, index) => (
+        <article data-responsibility-pillar><span>{pillar.key}</span><b>0{index + 1}</b><h3 data-en={pillar.title.en} data-ar={pillar.title.ar}>{pillar.title.en}</h3><p data-en={pillar.text.en} data-ar={pillar.text.ar}>{pillar.text.en}</p></article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent, growthOpportunities } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+
+const opportunities = Object.values(growthOpportunities);
+---
+
+<section class="growth-model current-section" id="growth">
+  <div class="current-shell growth-heading">
+    <div class="chapter-label"><span>09</span><span data-en="GROWTH MODEL" data-ar="نموذج النمو">GROWTH MODEL</span></div>
+    <h2 data-en={alsaqiContent.growth.title.en} data-ar={alsaqiContent.growth.title.ar}>{alsaqiContent.growth.title.en}</h2>
+  </div>
+  <div class="current-shell growth-canvas">
+    <figure class="growth-photo growth-photo-main"><Image src={alsaqiImages.growthRetail.src} alt={alsaqiImages.growthRetail.alt.en} data-alt-en={alsaqiImages.growthRetail.alt.en} data-alt-ar={alsaqiImages.growthRetail.alt.ar} widths={[750, 1100]} sizes="(max-width: 900px) 100vw, 55vw" loading="lazy" /></figure>
+    <figure class="growth-photo growth-photo-detail"><Image src={alsaqiImages.businessContract.src} alt={alsaqiImages.businessContract.alt.en} data-alt-en={alsaqiImages.businessContract.alt.en} data-alt-ar={alsaqiImages.businessContract.alt.ar} widths={[480, 760]} sizes="(max-width: 900px) 70vw, 28vw" loading="lazy" /></figure>
+    <div class="growth-opportunities">
+      {opportunities.map((opportunity, index) => <article data-growth-opportunity><span>0{index + 1}</span><p data-en={opportunity.en} data-ar={opportunity.ar}>{opportunity.en}</p></article>)}
+    </div>
+  </div>
+  <div class="current-shell distribution-model">
+    <p class="current-eyebrow" data-en="HOW WE GO TO MARKET" data-ar="كيف نصل إلى السوق">HOW WE GO TO MARKET</p>
+    <div>{alsaqiContent.growth.model.map((item, index) => <article data-growth-model><span>0{index + 1}</span><p data-en={item.en} data-ar={item.ar}>{item.en}</p></article>)}</div>
+  </div>
+</section>

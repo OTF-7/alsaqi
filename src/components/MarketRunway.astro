@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent, marketPhases } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+---
+
+<section class="market-runway current-section" id="market" data-market-root style="--market-progress:0">
+  <div class="current-shell runway-heading">
+    <div class="chapter-label"><span>06</span><span data-en="MARKET RUNWAY" data-ar="مسار السوق">MARKET RUNWAY</span></div>
+    <h2 data-en={alsaqiContent.market.title.en} data-ar={alsaqiContent.market.title.ar}>{alsaqiContent.market.title.en}</h2>
+  </div>
+
+  <div class="runway-visual current-shell">
+    <figure><Image src={alsaqiImages.roadExpansion.src} alt={alsaqiImages.roadExpansion.alt.en} data-alt-en={alsaqiImages.roadExpansion.alt.en} data-alt-ar={alsaqiImages.roadExpansion.alt.ar} widths={[800, 1300, 1900]} sizes="100vw" loading="lazy" /></figure>
+    <div class="runway-path" aria-hidden="true"><span></span><i></i><i></i><i></i></div>
+    <div class="runway-phases">
+      <article data-market-phase="launch" data-active="true">
+        <span>01</span><h3 data-en={marketPhases.launch.title.en} data-ar={marketPhases.launch.title.ar}>{marketPhases.launch.title.en}</h3>
+        <ul>{marketPhases.launch.points.map((point) => <li data-en={point.en} data-ar={point.ar}>{point.en}</li>)}</ul>
+      </article>
+      <article data-market-phase="establish" data-active="false">
+        <span>02</span><h3 data-en={marketPhases.establish.title.en} data-ar={marketPhases.establish.title.ar}>{marketPhases.establish.title.en}</h3>
+        <ul>{marketPhases.establish.points.map((point) => <li data-en={point.en} data-ar={point.ar}>{point.en}</li>)}</ul>
+      </article>
+      <article data-market-phase="expand" data-active="false">
+        <span>03</span><h3 data-en={marketPhases.expand.title.en} data-ar={marketPhases.expand.title.ar}>{marketPhases.expand.title.en}</h3>
+        <ul>{marketPhases.expand.points.map((point) => <li data-en={point.en} data-ar={point.ar}>{point.en}</li>)}</ul>
+      </article>
+    </div>
+  </div>
+
+  <div class="current-shell market-equation">
+    <p data-en={alsaqiContent.market.equation.en} data-ar={alsaqiContent.market.equation.ar}>{alsaqiContent.market.equation.en}</p>
+    <div class="market-advantages">
+      {alsaqiContent.market.advantages.map((advantage, index) => <span><b>0{index + 1}</b><em data-en={advantage.en} data-ar={advantage.ar}>{advantage.en}</em></span>)}
+    </div>
+  </div>
+</section>
