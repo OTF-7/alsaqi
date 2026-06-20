@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent, products } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+---
+
+<section class="living-hero" id="top" data-current-root>
+  <div class="living-hero-media">
+    <Image
+      src={alsaqiImages.heroFamily.src}
+      alt={alsaqiImages.heroFamily.alt.en}
+      data-alt-en={alsaqiImages.heroFamily.alt.en}
+      data-alt-ar={alsaqiImages.heroFamily.alt.ar}
+      widths={[768, 1200, 1600, 2200]}
+      sizes="100vw"
+      fetchpriority="high"
+      loading="eager"
+    />
+  </div>
+  <div class="living-hero-shade"></div>
+  <svg class="living-current" viewBox="0 0 460 820" fill="none" aria-hidden="true" data-current-path>
+    <path d="M378 4C350 112 430 176 342 249C260 317 310 405 198 461C83 519 143 641 8 816" />
+    <path d="M420 20C387 125 449 197 371 274C294 350 337 435 225 493C112 551 169 675 43 820" />
+  </svg>
+
+  <div class="living-hero-copy">
+    <div class="chapter-mark"><span>01</span><span>/ 09</span></div>
+    <p class="current-eyebrow" data-en={alsaqiContent.hero.eyebrow.en} data-ar={alsaqiContent.hero.eyebrow.ar}>{alsaqiContent.hero.eyebrow.en}</p>
+    <h1>
+      <span class="hero-line" data-en="Your refined" data-ar="الساقي…">Your refined</span>
+      <span class="hero-line hero-line-accent ar-break" data-en="choice." data-ar="اختيارك الراقي">choice.</span>
+    </h1>
+    <p class="hero-ar-signature" data-en={alsaqiContent.hero.slogan.en} data-ar={alsaqiContent.hero.slogan.ar}>{alsaqiContent.hero.slogan.en}</p>
+    <p class="living-hero-intro" data-en={alsaqiContent.hero.intro.en} data-ar={alsaqiContent.hero.intro.ar}>{alsaqiContent.hero.intro.en}</p>
+    <div class="living-actions">
+      <a class="current-button current-button-light" href="#products"><span data-en="Drink Alsaqi" data-ar="اكتشف مياه الساقي">Drink Alsaqi</span><span aria-hidden="true">↓</span></a>
+      <a class="current-button current-button-line" href="#partners"><span data-en="Grow with Alsaqi" data-ar="انمُ مع الساقي">Grow with Alsaqi</span><span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <div class="hero-size-rail" aria-label="Available sizes" data-aria-en="Available sizes" data-aria-ar="الأحجام المتاحة">
+    {products.map((product) => <span>{product.size}</span>)}
+  </div>
+  <a class="hero-scroll-cue" href="#manifesto" aria-label="Continue to the Alsaqi story" data-aria-en="Continue to the Alsaqi story" data-aria-ar="تابع إلى قصة الساقي"><span></span><small data-en="FOLLOW THE CURRENT" data-ar="اتبع التيار">FOLLOW THE CURRENT</small></a>
+</section>

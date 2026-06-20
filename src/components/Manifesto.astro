@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+---
+
+<section class="manifesto current-section" id="manifesto">
+  <div class="current-shell manifesto-grid">
+    <div class="manifesto-copy">
+      <div class="chapter-label"><span>02</span><span data-en="MORE THAN WATER" data-ar="أكثر من مياه">MORE THAN WATER</span></div>
+      <h2 data-en={alsaqiContent.manifesto.title.en} data-ar={alsaqiContent.manifesto.title.ar}>{alsaqiContent.manifesto.title.en}</h2>
+      <p class="manifesto-lead" data-en={alsaqiContent.manifesto.summary.en} data-ar={alsaqiContent.manifesto.summary.ar}>{alsaqiContent.manifesto.summary.en}</p>
+      <div class="manifesto-pillars">
+        <span data-en="Production quality" data-ar="جودة الإنتاج">Production quality</span>
+        <span data-en="Market intelligence" data-ar="فهم السوق">Market intelligence</span>
+        <span data-en="Focused products" data-ar="منتجات مدروسة">Focused products</span>
+        <span data-en="Professional distribution" data-ar="توزيع احترافي">Professional distribution</span>
+      </div>
+    </div>
+    <figure class="manifesto-portrait current-media">
+      <Image src={alsaqiImages.productionLine.src} alt={alsaqiImages.productionLine.alt.en} data-alt-en={alsaqiImages.productionLine.alt.en} data-alt-ar={alsaqiImages.productionLine.alt.ar} widths={[600, 900, 1200]} sizes="(max-width: 900px) 100vw, 48vw" loading="lazy" />
+      <figcaption><span data-en="A modern industrial system" data-ar="منظومة صناعية حديثة">A modern industrial system</span><strong>2026</strong></figcaption>
+    </figure>
+  </div>
+
+  <div class="current-shell vision-mission">
+    <article class="vision-panel">
+      <span class="panel-index">V</span>
+      <p class="current-eyebrow" data-en="VISION" data-ar="رؤيتنا">VISION</p>
+      <h3 data-en={alsaqiContent.manifesto.vision.en} data-ar={alsaqiContent.manifesto.vision.ar}>{alsaqiContent.manifesto.vision.en}</h3>
+      <Image src={alsaqiImages.firstPlace.src} alt={alsaqiImages.firstPlace.alt.en} data-alt-en={alsaqiImages.firstPlace.alt.en} data-alt-ar={alsaqiImages.firstPlace.alt.ar} widths={[480, 760]} sizes="(max-width: 760px) 100vw, 42vw" loading="lazy" />
+    </article>
+    <article class="mission-panel">
+      <span class="panel-index">M</span>
+      <p class="current-eyebrow" data-en="MISSION" data-ar="رسالتنا">MISSION</p>
+      <h3 data-en={alsaqiContent.manifesto.mission.en} data-ar={alsaqiContent.manifesto.mission.ar}>{alsaqiContent.manifesto.mission.en}</h3>
+      <Image src={alsaqiImages.labChecklist.src} alt={alsaqiImages.labChecklist.alt.en} data-alt-en={alsaqiImages.labChecklist.alt.en} data-alt-ar={alsaqiImages.labChecklist.alt.ar} widths={[480, 760]} sizes="(max-width: 760px) 100vw, 42vw" loading="lazy" />
+    </article>
+  </div>
+</section>

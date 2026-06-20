@@ -1,20 +1,23 @@
-<header class="site-header" data-header>
+---
+import { Image } from "astro:assets";
+import logoLockup from "../assets/alsaqi/logo-lockup.png";
+---
+
+<header class="site-header current-header" data-header>
   <div class="header-shell">
-    <a class="brand" href="#top" aria-label="Al Saqi Mineral Water Factory" data-aria-en="Al Saqi Mineral Water Factory" data-aria-ar="مصنع الساقي للمياه المعدنية">
-      <span class="brand-drop" aria-hidden="true">
-        <svg viewBox="0 0 42 52" role="img"><path d="M21 2C15 12 5 23 5 34a16 16 0 0 0 32 0C37 23 27 12 21 2Z"/><path d="M13 34c4-6 10-9 18-9"/></svg>
-      </span>
-      <span class="brand-type">
+    <a class="brand brand-exact" href="#top" aria-label="Al Saqi Mineral Water Factory" data-aria-en="Al Saqi Mineral Water Factory" data-aria-ar="مصنع الساقي للمياه المعدنية">
+      <Image src={logoLockup} alt="" width={155} loading="eager" />
+      <span class="brand-company">
         <strong data-en="AL SAQI" data-ar="الساقي">AL SAQI</strong>
-        <small data-en="MINERAL WATER" data-ar="مياه معدنية">MINERAL WATER</small>
+        <small data-en="MINERAL WATER FACTORY" data-ar="مصنع المياه المعدنية">MINERAL WATER FACTORY</small>
       </span>
     </a>
 
-    <nav class="desktop-nav" aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-ar="التنقل الرئيسي">
-      <a href="#story" data-en="Our water" data-ar="مياهنا">Our water</a>
-      <a href="#range" data-en="Bottle sizes" data-ar="أحجام العبوات">Bottle sizes</a>
-      <a href="#quality" data-en="Quality" data-ar="الجودة">Quality</a>
-      <a href="#partners" data-en="Partners" data-ar="الشركاء">Partners</a>
+    <nav class="desktop-nav current-nav" data-nav-order aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-ar="التنقل الرئيسي">
+      <a href="#products" data-en="Water" data-ar="مياهنا">Water</a>
+      <a href="#proof" data-en="Proof" data-ar="الجودة">Proof</a>
+      <a href="#market" data-en="Market" data-ar="السوق">Market</a>
+      <a href="#responsibility" data-en="Responsibility" data-ar="مسؤوليتنا">Responsibility</a>
     </nav>
 
     <div class="header-actions">
@@ -22,18 +25,16 @@
         <button type="button" data-lang="en" aria-pressed="true">EN</button>
         <button type="button" data-lang="ar" aria-pressed="false">ع</button>
       </div>
-      <a class="header-contact" href="#contact" data-en="Talk to sales" data-ar="تواصل مع المبيعات">Talk to sales</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-aria-en="Open menu" data-aria-ar="افتح القائمة">
-        <span></span><span></span>
-      </button>
+      <a class="header-contact" href="#partners" data-en="Grow with Alsaqi" data-ar="انمُ مع الساقي">Grow with Alsaqi</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-aria-en="Open menu" data-aria-ar="افتح القائمة"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-aria-en="Mobile navigation" data-aria-ar="تنقل الجوال">
-  <a href="#story" data-en="Our water" data-ar="مياهنا">Our water</a>
-  <a href="#range" data-en="Bottle sizes" data-ar="أحجام العبوات">Bottle sizes</a>
-  <a href="#quality" data-en="Quality" data-ar="الجودة">Quality</a>
-  <a href="#partners" data-en="Partners" data-ar="الشركاء">Partners</a>
-  <a href="#contact" data-en="Talk to sales" data-ar="تواصل مع المبيعات">Talk to sales</a>
+<nav class="mobile-menu" id="mobile-menu" data-nav-order aria-label="Mobile navigation" data-aria-en="Mobile navigation" data-aria-ar="تنقل الجوال">
+  <a href="#products" data-en="Water" data-ar="مياهنا">Water</a>
+  <a href="#proof" data-en="Proof" data-ar="الجودة">Proof</a>
+  <a href="#market" data-en="Market" data-ar="السوق">Market</a>
+  <a href="#responsibility" data-en="Responsibility" data-ar="مسؤوليتنا">Responsibility</a>
+  <a href="#partners" data-en="Grow with Alsaqi" data-ar="انمُ مع الساقي">Grow with Alsaqi</a>
 </nav>
