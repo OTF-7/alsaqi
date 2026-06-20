@@ -385,7 +385,7 @@ html[dir="rtl"] .brand-company small { font-family: var(--font-ar-body); letter-
 
 .living-hero { min-height: 780px; height: 100svh; max-height: 1050px; position: relative; overflow: hidden; display: flex; align-items: flex-end; background: var(--saqi-blue-deep); color: var(--white); }
 .living-hero-media, .living-hero-media picture, .living-hero-media img { position: absolute; inset: 0; width: 100%; height: 100%; }
-.living-hero-media img { object-fit: cover; object-position: center; transform: scale(1.015); animation: hero-settle 1.6s var(--ease) both; }
+.living-hero-media img { object-fit: cover; object-position: center; transform: scale(1.015); animation: hero-settle 1.6s var(--ease); }
 .living-hero-shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgb(4 31 52 / 92%) 0%, rgb(5 45 76 / 60%) 38%, transparent 69%), linear-gradient(0deg, rgb(4 31 52 / 66%) 0%, transparent 46%); }
 html[dir="rtl"] .living-hero-shade { background: linear-gradient(270deg, rgb(4 31 52 / 92%) 0%, rgb(5 45 76 / 60%) 38%, transparent 69%), linear-gradient(0deg, rgb(4 31 52 / 66%) 0%, transparent 46%); }
 .living-hero-copy { position: relative; z-index: 3; width: min(650px, calc(100% - 2 * var(--gutter))); margin-inline: max(var(--gutter), calc((100vw - var(--shell)) / 2 + var(--gutter))); padding-bottom: 7.3rem; }
@@ -451,7 +451,7 @@ html[dir="rtl"] .vision-mission h3 { font-family: var(--font-ar-display); font-s
 .vision-mission img { position: absolute; width: 46%; height: 45%; object-fit: cover; inset-inline-end: 0; bottom: 0; clip-path: polygon(22% 0, 100% 0, 100% 100%, 0 100%); }
 .panel-index { position: absolute; inset-inline-end: 1.5rem; top: 0.5rem; font-family: var(--display); font-size: 9rem; font-weight: 700; line-height: 1; opacity: 0.09; }
 
-@keyframes hero-settle { from { transform: scale(1.08); filter: saturate(0.75); } to { transform: scale(1.015); filter: saturate(1); } }
+@keyframes hero-settle { from { filter: saturate(0.75); opacity: 0.82; } to { filter: saturate(1); opacity: 1; } }
 @keyframes line-enter { from { opacity: 0; transform: translateY(34px); clip-path: inset(100% 0 0); } to { opacity: 1; transform: translateY(0); clip-path: inset(0); } }
 @keyframes trace-current { to { stroke-dashoffset: 0; } }
 @keyframes cue-flow { 50%,100% { transform: translateX(calc(100% * var(--flow-direction))); } }
@@ -463,6 +463,8 @@ html[dir="rtl"] .vision-mission h3 { font-family: var(--font-ar-display); font-s
   .manifesto-copy { max-width: 680px; }
   .manifesto-portrait { aspect-ratio: 16 / 10; }
   .vision-mission { grid-template-columns: 1fr; }
+  html[dir="rtl"] .vision-mission h3 { max-width: 14ch; }
+  .vision-mission img { width: 42%; }
 }
 
 @media (max-width: 640px) {
@@ -823,7 +825,7 @@ html[dir="rtl"] .partner-copy h2 { font-size: clamp(3.7rem, 7.5vw, 7.5rem); line
   .values-stage { padding-inline: 0; }
   .values-stage > figure { min-height: 390px; }
   .institutional-orbit { background: var(--saqi-blue); grid-template-columns: 1fr; min-height: auto; padding: 1rem; }
-  .orbit-core { margin: 1rem auto 2rem; position: relative; transform: none; }
+  .orbit-core { left: auto; margin: 1rem auto 2rem; position: relative; top: auto; transform: none; }
   html[dir="rtl"] .orbit-core { transform: none; }
   .institutional-orbit article:nth-of-type(even) { transform: none; }
   .responsibility-matrix { min-height: auto; }
@@ -841,4 +843,14 @@ html[dir="rtl"] .partner-copy h2 { font-size: clamp(3.7rem, 7.5vw, 7.5rem); line
 @media (prefers-reduced-motion: reduce) {
   .runway-phases article { opacity: 1; transition: none; }
   .runway-path span { transform: none; }
+}
+
+/* The opening current moves with scroll and mirrors naturally through RTL layout. */
+.living-hero { --current-progress: 0; }
+.living-current { transform: translate3d(calc(var(--current-progress) * 38px * var(--flow-direction)), calc(var(--current-progress) * -42px), 0); }
+html[dir="rtl"] .living-current { transform: scaleX(-1) translate3d(calc(var(--current-progress) * -38px), calc(var(--current-progress) * -42px), 0); }
+.living-hero-media img { transform: scale(calc(1.035 + var(--current-progress) * 0.035)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .living-current, .living-hero-media img { transform: none; }
 }
