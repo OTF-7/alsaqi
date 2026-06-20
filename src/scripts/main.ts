@@ -1,4 +1,5 @@
 import { initAudienceLens } from "./audience-lens";
+import { initFactoryConveyor } from "./factory-conveyor";
 import { initProductTheatre } from "./product-theatre";
 
 type Language = "en" | "ar";
@@ -105,3 +106,4 @@ if (reducedMotion) {
 setLanguage(currentLanguage());
 initProductTheatre();
 initAudienceLens();
+initFactoryConveyor();

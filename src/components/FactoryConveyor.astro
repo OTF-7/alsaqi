@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+
+const stages = [
+  { image: alsaqiImages.factoryLine, code: "AUTO", title: alsaqiContent.factory.stages[0] },
+  { image: alsaqiImages.productionLine, code: "PLC", title: alsaqiContent.factory.stages[1] },
+  { image: alsaqiImages.labChecklist, code: "QC", title: alsaqiContent.factory.stages[2] },
+  { image: alsaqiImages.marketLaunch, code: "FLOW", title: alsaqiContent.factory.stages[3] },
+] as const;
+---
+
+<section class="factory-conveyor current-section" id="proof" data-factory-root style="--factory-progress:0">
+  <div class="current-shell factory-heading">
+    <div>
+      <div class="chapter-label chapter-label-light"><span>05</span><span data-en="INDUSTRIAL PROOF" data-ar="دليل صناعي">INDUSTRIAL PROOF</span></div>
+      <h2 data-en={alsaqiContent.factory.title.en} data-ar={alsaqiContent.factory.title.ar}>{alsaqiContent.factory.title.en}</h2>
+    </div>
+    <p data-en="Every handoff protects the promise on the label." data-ar="كل مرحلة تحمي الوعد المكتوب على العبوة.">Every handoff protects the promise on the label.</p>
+  </div>
+
+  <div class="factory-track current-shell">
+    <div class="factory-sticky">
+      <div class="factory-media-stack">
+        {stages.map((stage, index) => (
+          <figure data-factory-image={index} aria-hidden={index === 0 ? "false" : "true"}>
+            <Image src={stage.image.src} alt={stage.image.alt.en} data-alt-en={stage.image.alt.en} data-alt-ar={stage.image.alt.ar} widths={[700, 1050, 1400]} sizes="(max-width: 900px) 100vw, 52vw" loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      <div class="conveyor-line" aria-hidden="true"><span></span><i></i><i></i><i></i><i></i></div>
+    </div>
+
+    <ol class="factory-stages">
+      {stages.map((stage, index) => (
+        <li data-factory-stage={index} data-active={index === 0 ? "true" : "false"}>
+          <div class="factory-index"><span>0{index + 1}</span><small>{stage.code}</small></div>
+          <h3 data-en={stage.title.en} data-ar={stage.title.ar}>{stage.title.en}</h3>
+          <p data-en={index === 0 ? "Consistent output begins with capable, automated production." : index === 1 ? "Industrial control keeps the process visible, measured, and responsive." : index === 2 ? "Quality is checked through the line, not inspected only at the end." : "Operational discipline reduces loss and sustains reliable supply."} data-ar={index === 0 ? "يبدأ ثبات الإنتاج بخطوط أوتوماتيكية عالية الكفاءة." : index === 1 ? "تجعل أنظمة التحكم الصناعي العملية مرئية وقابلة للقياس والاستجابة." : index === 2 ? "تُراقب الجودة عبر جميع المراحل، لا عند نهاية الخط فقط." : "يقلل الانضباط التشغيلي الفاقد ويحافظ على استمرارية التوريد."}>
+            {index === 0 ? "Consistent output begins with capable, automated production." : index === 1 ? "Industrial control keeps the process visible, measured, and responsive." : index === 2 ? "Quality is checked through the line, not inspected only at the end." : "Operational discipline reduces loss and sustains reliable supply."}
+          </p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

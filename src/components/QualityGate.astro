@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+
+const checkpoints = [
+  { en: "Food-safety systems", ar: "أنظمة سلامة الغذاء" },
+  { en: "Health-specification conformity", ar: "مطابقة المواصفات الصحية" },
+  { en: "Periodic quality tests", ar: "فحوصات جودة دورية" },
+  { en: "Direction toward ISO and HACCP", ar: "التوجه نحو ISO وHACCP" },
+] as const;
+---
+
+<section class="quality-gate current-section" data-certification-direction>
+  <div class="current-shell quality-layout">
+    <figure class="quality-art">
+      <Image src={alsaqiImages.qualityBottle.src} alt={alsaqiImages.qualityBottle.alt.en} data-alt-en={alsaqiImages.qualityBottle.alt.en} data-alt-ar={alsaqiImages.qualityBottle.alt.ar} widths={[620, 960, 1300]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
+      <div class="quality-pulse" aria-hidden="true"><span></span><span></span><span></span></div>
+    </figure>
+    <div class="quality-copy">
+      <p class="current-eyebrow" data-en="QUALITY GATE" data-ar="بوابة الجودة">QUALITY GATE</p>
+      <h2 data-en={alsaqiContent.quality.title.en} data-ar={alsaqiContent.quality.title.ar}>{alsaqiContent.quality.title.en}</h2>
+      <div class="quality-checkpoints">
+        {checkpoints.map((checkpoint, index) => (
+          <div><span>0{index + 1}</span><p data-en={checkpoint.en} data-ar={checkpoint.ar}>{checkpoint.en}</p></div>
+        ))}
+      </div>
+      <p class="certification-note" data-en={alsaqiContent.quality.certificationDirection.en} data-ar={alsaqiContent.quality.certificationDirection.ar}>{alsaqiContent.quality.certificationDirection.en}</p>
+    </div>
+  </div>
+</section>

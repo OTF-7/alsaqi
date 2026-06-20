@@ -598,3 +598,88 @@ html[dir="rtl"] .audience-promise { font-family: var(--font-ar-display); font-si
 @media (prefers-reduced-motion: reduce) {
   .product-shot { transition: none; }
 }
+
+/* Industrial proof */
+.factory-conveyor {
+  --factory-progress: 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgb(89 200 236 / 12%), transparent 28rem),
+    linear-gradient(145deg, #062f4c 0%, #041f34 100%);
+  color: var(--white);
+  min-height: 330vh;
+  overflow: clip;
+}
+.factory-heading { display: flex; justify-content: space-between; gap: 3rem; padding-block: clamp(6rem, 10vw, 9rem) 3rem; }
+.factory-heading h2 { font-size: clamp(3.8rem, 7vw, 7.5rem); margin-top: 1.3rem; max-width: 10ch; }
+html[dir="rtl"] .factory-heading h2 { font-size: clamp(3rem, 5.8vw, 6rem); line-height: 1.15; }
+.factory-heading > p { align-self: end; color: rgb(255 255 255 / 60%); max-width: 30ch; }
+.chapter-label-light { color: var(--saqi-green); }
+.factory-track { display: grid; gap: clamp(3rem, 7vw, 7rem); grid-template-columns: minmax(0, 1.15fr) minmax(310px, 0.85fr); }
+.factory-sticky { align-self: start; position: sticky; top: 104px; }
+.factory-media-stack { aspect-ratio: 4 / 3; background: #061b2b; overflow: hidden; position: relative; }
+.factory-media-stack figure { inset: 0; opacity: 0; position: absolute; transform: scale(1.04); transition: opacity 500ms ease, transform 900ms var(--ease); }
+.factory-media-stack figure[aria-hidden="false"] { opacity: 1; transform: scale(1); z-index: 1; }
+.factory-media-stack img { height: 100%; object-fit: cover; width: 100%; }
+.factory-media-stack::after { background: linear-gradient(180deg, transparent 50%, rgb(3 20 32 / 72%)); content: ""; inset: 0; pointer-events: none; position: absolute; z-index: 2; }
+.conveyor-line { background: rgb(255 255 255 / 13%); display: flex; height: 3px; justify-content: space-between; margin-top: 2.2rem; position: relative; }
+.conveyor-line span { background: var(--saqi-green); inset: 0 auto 0 0; position: absolute; transform: scaleX(var(--factory-progress)); transform-origin: left; width: 100%; }
+html[dir="rtl"] .conveyor-line span { inset: 0 0 0 auto; transform-origin: right; }
+.conveyor-line i { background: var(--saqi-blue-deep); border: 2px solid var(--saqi-green); border-radius: 50%; height: 15px; margin-top: -6px; position: relative; width: 15px; z-index: 2; }
+.factory-stages { list-style: none; }
+.factory-stages li { border-top: 1px solid rgb(255 255 255 / 15%); display: flex; flex-direction: column; justify-content: center; min-height: 68vh; opacity: 0.28; transition: opacity 350ms ease; }
+.factory-stages li[data-active="true"] { opacity: 1; }
+.factory-index { align-items: center; display: flex; gap: 0.8rem; }
+.factory-index span { color: var(--saqi-green); font-family: var(--display); font-size: 0.85rem; font-weight: 700; }
+.factory-index small { border: 1px solid rgb(255 255 255 / 22%); border-radius: 99px; color: var(--saqi-cyan); font-size: 0.58rem; font-weight: 800; letter-spacing: 0.12em; padding: 0.35rem 0.6rem; }
+.factory-stages h3 { font-size: clamp(2.6rem, 4vw, 4.9rem); line-height: 0.96; margin-block: 1rem; max-width: 10ch; }
+html[dir="rtl"] .factory-stages h3 { font-size: clamp(2rem, 3.4vw, 3.8rem); line-height: 1.2; max-width: 13ch; }
+.factory-stages p { color: rgb(255 255 255 / 62%); max-width: 40ch; }
+
+/* Quality gate */
+.quality-gate { background: var(--white); padding-block: clamp(6rem, 11vw, 11rem); }
+.quality-layout { align-items: stretch; display: grid; grid-template-columns: 1.08fr 0.92fr; }
+.quality-art { min-height: 690px; overflow: hidden; position: relative; }
+.quality-art::after { border: 1px solid rgb(255 255 255 / 38%); content: ""; inset: 2rem; pointer-events: none; position: absolute; }
+.quality-art img { height: 100%; object-fit: cover; width: 100%; }
+.quality-pulse { inset: 0; position: absolute; }
+.quality-pulse span { border: 1px solid rgb(121 207 43 / 68%); border-radius: 50%; height: 12rem; left: 50%; position: absolute; top: 48%; transform: translate(-50%, -50%); width: 12rem; }
+.quality-pulse span:nth-child(2) { height: 20rem; opacity: 0.55; width: 20rem; }
+.quality-pulse span:nth-child(3) { height: 29rem; opacity: 0.28; width: 29rem; }
+.quality-copy { background: var(--mist); display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 5.5rem); }
+.quality-copy h2 { color: var(--saqi-blue); font-size: clamp(3.8rem, 6vw, 6.8rem); margin-block: 1rem 2.5rem; max-width: 8ch; }
+html[dir="rtl"] .quality-copy h2 { font-size: clamp(3rem, 5vw, 5.4rem); line-height: 1.15; max-width: 11ch; }
+.quality-checkpoints { border-top: 1px solid var(--line); }
+.quality-checkpoints > div { align-items: center; border-bottom: 1px solid var(--line); display: grid; gap: 1rem; grid-template-columns: 38px 1fr; padding-block: 1rem; }
+.quality-checkpoints span { color: var(--saqi-green-deep); font-family: var(--display); font-weight: 700; }
+.quality-checkpoints p { color: var(--ink); font-weight: 700; }
+.certification-note { border-inline-start: 3px solid var(--saqi-green); color: var(--ink-soft); font-size: 0.8rem; margin-top: 2rem; padding-inline-start: 1rem; }
+
+@media (max-width: 900px) {
+  .factory-conveyor { min-height: auto; padding-bottom: 6rem; }
+  .factory-heading { flex-direction: column; }
+  .factory-heading > p { align-self: start; }
+  .factory-track { grid-template-columns: 1fr; }
+  .factory-sticky { position: relative; top: auto; }
+  .factory-stages li { min-height: auto; opacity: 1; padding-block: 3.5rem; }
+  .quality-layout { grid-template-columns: 1fr; }
+  .quality-art { min-height: 520px; }
+}
+
+@media (max-width: 640px) {
+  .factory-heading h2 { font-size: 3.7rem; }
+  html[dir="rtl"] .factory-heading h2 { font-size: 3rem; }
+  .factory-media-stack { aspect-ratio: 4 / 5; }
+  .factory-stages h3 { font-size: 2.9rem; }
+  html[dir="rtl"] .factory-stages h3 { font-size: 2.25rem; }
+  .quality-art { min-height: 410px; }
+  .quality-copy { padding: 2rem 1.35rem 3rem; }
+  .quality-copy h2 { font-size: 3.8rem; }
+  html[dir="rtl"] .quality-copy h2 { font-size: 3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .factory-conveyor { min-height: auto; padding-bottom: 6rem; }
+  .factory-sticky { position: relative; top: auto; }
+  .factory-media-stack figure, .factory-stages li { transition: none; }
+  .factory-stages li { min-height: auto; opacity: 1; padding-block: 4rem; }
+}
