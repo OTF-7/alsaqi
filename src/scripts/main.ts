@@ -1,3 +1,6 @@
+import { initAudienceLens } from "./audience-lens";
+import { initProductTheatre } from "./product-theatre";
+
 type Language = "en" | "ar";
 
 const root = document.documentElement;
@@ -100,3 +103,5 @@ if (reducedMotion) {
 }
 
 setLanguage(currentLanguage());
+initProductTheatre();
+initAudienceLens();

@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import { alsaqiContent, audiences } from "../data/alsaqi";
+import { alsaqiImages } from "../data/assets";
+
+const audienceList = [
+  { id: "consumer", data: audiences.consumer, image: alsaqiImages.consumerShelf },
+  { id: "trader", data: audiences.trader, image: alsaqiImages.traderStore },
+  { id: "investor", data: audiences.investor, image: alsaqiImages.investorDesk },
+] as const;
+---
+
+<section class="audience-lens current-section" id="value" data-audience-root data-audience="consumer">
+  <div class="current-shell audience-heading">
+    <div class="chapter-label"><span>04</span><span data-en="VALUE LENS" data-ar="منظور القيمة">VALUE LENS</span></div>
+    <h2 data-en={alsaqiContent.audiences.title.en} data-ar={alsaqiContent.audiences.title.ar}>{alsaqiContent.audiences.title.en}</h2>
+  </div>
+  <div class="current-shell audience-tabs" role="tablist" aria-label="Audience value" data-aria-en="Audience value" data-aria-ar="قيمة الساقي لكل فئة">
+    {audienceList.map((audience, index) => (
+      <button type="button" role="tab" data-audience-option={audience.id} aria-selected={index === 0 ? "true" : "false"}>
+        <span>0{index + 1}</span><strong data-en={audience.data.label.en} data-ar={audience.data.label.ar}>{audience.data.label.en}</strong>
+      </button>
+    ))}
+  </div>
+
+  <div class="current-shell audience-panels">
+    {audienceList.map((audience, audienceIndex) => (
+      <article class="audience-panel" data-audience-panel={audience.id} hidden={audienceIndex !== 0}>
+        <figure>
+          <Image src={audience.image.src} alt={audience.image.alt.en} data-alt-en={audience.image.alt.en} data-alt-ar={audience.image.alt.ar} widths={[620, 960, 1200]} sizes="(max-width: 900px) 100vw, 48vw" loading="lazy" />
+        </figure>
+        <div class="value-orbit">
+          <div class="value-core"><small data-en="FOR THE" data-ar="قيمة">FOR THE</small><strong data-en={audience.data.label.en} data-ar={audience.data.label.ar}>{audience.data.label.en}</strong></div>
+          <div class="value-points">
+            {audience.data.values.map((value, index) => (
+              <div style={`--point-index:${index};--point-count:${audience.data.values.length}`}><span>{index + 1}</span><p data-en={value.en} data-ar={value.ar}>{value.en}</p></div>
+            ))}
+          </div>
+          <p class="audience-promise" data-en={audience.data.promise.en} data-ar={audience.data.promise.ar}>{audience.data.promise.en}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
