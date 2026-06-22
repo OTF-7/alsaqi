@@ -11,6 +11,6 @@ export default defineConfig({
   /* astro preview builds its own Vite config (configFile: false) and only
      reads the top-level `server` option — vite.preview.* is ignored */
   server: {
-    allowedHosts: ["alsaqi.omartaha.net", "alsaqiwater.com", "www.alsaqiwater.com"],
+    allowedHosts: ["alsaqi.alromanaads.com", "alsaqi.omartaha.net", "alsaqiwater.com", "www.alsaqiwater.com"],
   },
 });
