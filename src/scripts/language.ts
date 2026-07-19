@@ -28,7 +28,18 @@ export function initLanguage() {
   const setLanguage = (language: Language) => {
     root.lang = language;
     root.dir = language === "ar" ? "rtl" : "ltr";
-    localStorage.setItem("alsaqi-lang", language);
+    try {
+      localStorage.setItem("alsaqi-lang", language);
+    } catch {
+      /* Storage can be unavailable in strict privacy modes. */
+    }
+    document.title = language === "ar"
+      ? "مصنع الساقي للمياه المعدنية | الساقي… اختيارك الراقي"
+      : "Al Saqi Mineral Water Factory | Al Saqi… your refined choice";
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    description?.setAttribute("content", language === "ar"
+      ? "مياه معدنية طبيعية بمعايير جودة عالية وتجربة تعكس الذوق الرفيع"
+      : "Natural mineral water made to exacting quality standards, with an experience that reflects refined taste.");
     applyTranslations(language);
     buttons.forEach((button) => {
       const active = button.dataset.lang === language;

@@ -1,40 +1,40 @@
 ---
 import { Image } from "astro:assets";
-import logoLockup from "../assets/alsaqi/logo-lockup.png";
+import logo from "../assets/logo.png";
+import { hero } from "../data/alsaqi";
+
+const nav = [
+  { href: "#about", en: "About", ar: "الملخص التنفيذي" },
+  { href: "#products", en: "Products", ar: "المنتجات" },
+  { href: "#quality", en: "Quality", ar: "الجودة والمعايير" },
+  { href: "#market", en: "Market", ar: "فلسفة العمل" },
+  { href: "#growth", en: "Growth", ar: "فرص النمو والتوسع" },
+];
 ---
 
-<header class="site-header current-header" data-header>
+<header class="site-header" data-header>
   <div class="header-shell">
-    <a class="brand brand-exact" href="#top" aria-label="Al Saqi Mineral Water Factory" data-aria-en="Al Saqi Mineral Water Factory" data-aria-ar="مصنع الساقي للمياه المعدنية">
-      <Image src={logoLockup} alt="" width={155} loading="eager" />
-      <span class="brand-company">
-        <strong data-en="AL SAQI" data-ar="الساقي">AL SAQI</strong>
-        <small data-en="MINERAL WATER FACTORY" data-ar="مصنع المياه المعدنية">MINERAL WATER FACTORY</small>
-      </span>
+    <a class="site-brand" href="#top" aria-label={hero.brand.ar} data-aria-en={hero.brand.en} data-aria-ar={hero.brand.ar}>
+      <Image src={logo} alt="" widths={[72, 108]} sizes="54px" loading="eager" />
+      <span data-en={hero.brand.en} data-ar={hero.brand.ar}>{hero.brand.ar}</span>
     </a>
 
-    <nav class="desktop-nav current-nav" data-nav-order aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-ar="التنقل الرئيسي">
-      <a href="#products" data-en="Water" data-ar="مياهنا">Water</a>
-      <a href="#proof" data-en="Proof" data-ar="الجودة">Proof</a>
-      <a href="#market" data-en="Market" data-ar="السوق">Market</a>
-      <a href="#responsibility" data-en="Responsibility" data-ar="مسؤوليتنا">Responsibility</a>
+    <nav class="desktop-nav" aria-label="التنقل الرئيسي" data-aria-en="Primary navigation" data-aria-ar="التنقل الرئيسي">
+      {nav.map((item) => <a href={item.href} data-en={item.en} data-ar={item.ar}>{item.ar}</a>)}
     </nav>
 
     <div class="header-actions">
-      <div class="lang-switch" role="group" aria-label="Language" data-aria-en="Language" data-aria-ar="اللغة">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="ar" aria-pressed="false">ع</button>
+      <div class="lang-switch" role="group" aria-label="اللغة" data-aria-en="Language" data-aria-ar="اللغة">
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="true">ع</button>
       </div>
-      <a class="header-contact" href="#partners" data-en="Grow with Alsaqi" data-ar="انمُ مع الساقي">Grow with Alsaqi</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-aria-en="Open menu" data-aria-ar="افتح القائمة"><span></span><span></span></button>
+      <a class="header-contact" href="#partners"><span data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="افتح القائمة" data-aria-en="Open menu" data-aria-ar="افتح القائمة"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<nav class="mobile-menu" id="mobile-menu" data-nav-order aria-label="Mobile navigation" data-aria-en="Mobile navigation" data-aria-ar="تنقل الجوال">
-  <a href="#products" data-en="Water" data-ar="مياهنا">Water</a>
-  <a href="#proof" data-en="Proof" data-ar="الجودة">Proof</a>
-  <a href="#market" data-en="Market" data-ar="السوق">Market</a>
-  <a href="#responsibility" data-en="Responsibility" data-ar="مسؤوليتنا">Responsibility</a>
-  <a href="#partners" data-en="Grow with Alsaqi" data-ar="انمُ مع الساقي">Grow with Alsaqi</a>
+<nav class="mobile-menu" id="mobile-menu" aria-label="تنقل الجوال" data-aria-en="Mobile navigation" data-aria-ar="تنقل الجوال">
+  {nav.map((item) => <a href={item.href} data-en={item.en} data-ar={item.ar}>{item.ar}</a>)}
+  <a href="#partners" data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</a>
 </nav>

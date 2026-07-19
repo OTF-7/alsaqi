@@ -1,45 +1,47 @@
 ---
 import { Image } from "astro:assets";
-import { alsaqiContent, products } from "../data/alsaqi";
-import { alsaqiImages } from "../data/assets";
+import bottle330 from "../assets/alsaqi/cutouts/bottle-330.png";
+import bottle750 from "../assets/alsaqi/cutouts/bottle-750.png";
+import bottle1200 from "../assets/alsaqi/cutouts/bottle-1200.png";
+import { hero } from "../data/alsaqi";
+
+const bottles = [
+  { id: "330", src: bottle330, label: "330 ml", labelAr: "330 مل", className: "hero-bottle-small", alt: "Al Saqi 330 ml bottle", altAr: "عبوة الساقي سعة 330 مل" },
+  { id: "1200", src: bottle1200, label: "1200 ml", labelAr: "1200 مل", className: "hero-bottle-large", alt: "Al Saqi 1200 ml bottle", altAr: "عبوة الساقي سعة 1200 مل" },
+  { id: "750", src: bottle750, label: "750 ml", labelAr: "750 مل", className: "hero-bottle-medium", alt: "Al Saqi 750 ml bottle", altAr: "عبوة الساقي سعة 750 مل" },
+];
 ---
 
-<section class="living-hero" id="top" data-current-root>
-  <div class="living-hero-media">
-    <Image
-      src={alsaqiImages.heroFamily.src}
-      alt={alsaqiImages.heroFamily.alt.en}
-      data-alt-en={alsaqiImages.heroFamily.alt.en}
-      data-alt-ar={alsaqiImages.heroFamily.alt.ar}
-      widths={[768, 1200, 1600, 2200]}
-      sizes="100vw"
-      fetchpriority="high"
-      loading="eager"
-    />
-  </div>
-  <div class="living-hero-shade"></div>
-  <svg class="living-current" viewBox="0 0 460 820" fill="none" aria-hidden="true" data-current-path>
-    <path d="M378 4C350 112 430 176 342 249C260 317 310 405 198 461C83 519 143 641 8 816" />
-    <path d="M420 20C387 125 449 197 371 274C294 350 337 435 225 493C112 551 169 675 43 820" />
-  </svg>
+<section class="raqi-hero" id="top" aria-labelledby="hero-title">
+  <div class="site-shell hero-layout">
+    <div class="hero-copy reveal">
+      <p class="section-kicker" data-en={hero.kicker.en} data-ar={hero.kicker.ar}>{hero.kicker.ar}</p>
+      <h1 id="hero-title" data-en={hero.title.en} data-ar={hero.title.ar}>{hero.title.ar}</h1>
+      <p class="hero-support" data-en={hero.support.en} data-ar={hero.support.ar}>{hero.support.ar}</p>
+      <div class="hero-actions">
+        <a class="pill-button pill-button-light" href="#products"><span data-en={hero.primaryCta.en} data-ar={hero.primaryCta.ar}>{hero.primaryCta.ar}</span><b aria-hidden="true">←</b></a>
+        <a class="pill-button pill-button-line" href="#partners"><span data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</span><b aria-hidden="true">↗</b></a>
+      </div>
+      <p class="hero-brand-line" data-en={hero.brand.en} data-ar={hero.brand.ar}>{hero.brand.ar}</p>
+    </div>
 
-  <div class="living-hero-copy">
-    <div class="chapter-mark"><span>01</span><span>/ 09</span></div>
-    <p class="current-eyebrow" data-en={alsaqiContent.hero.eyebrow.en} data-ar={alsaqiContent.hero.eyebrow.ar}>{alsaqiContent.hero.eyebrow.en}</p>
-    <h1>
-      <span class="hero-line" data-en="Your refined" data-ar="الساقي…">Your refined</span>
-      <span class="hero-line hero-line-accent ar-break" data-en="choice." data-ar="اختيارك الراقي">choice.</span>
-    </h1>
-    <p class="hero-ar-signature" data-en={alsaqiContent.hero.slogan.en} data-ar={alsaqiContent.hero.slogan.ar}>{alsaqiContent.hero.slogan.en}</p>
-    <p class="living-hero-intro" data-en={alsaqiContent.hero.intro.en} data-ar={alsaqiContent.hero.intro.ar}>{alsaqiContent.hero.intro.en}</p>
-    <div class="living-actions">
-      <a class="current-button current-button-light" href="#products"><span data-en="Drink Alsaqi" data-ar="اكتشف مياه الساقي">Drink Alsaqi</span><span aria-hidden="true">↓</span></a>
-      <a class="current-button current-button-line" href="#partners"><span data-en="Grow with Alsaqi" data-ar="انمُ مع الساقي">Grow with Alsaqi</span><span aria-hidden="true">↗</span></a>
+    <div class="hero-products reveal" aria-label="أحجام عبوات الساقي" data-aria-en="Al Saqi bottle sizes" data-aria-ar="أحجام عبوات الساقي">
+      <div class="hero-spotlight" aria-hidden="true"></div>
+      <div class="hero-bottles">
+        {bottles.map((bottle) => (
+          <figure class:list={["hero-bottle", bottle.className]} tabindex="0">
+            <Image src={bottle.src} alt={bottle.altAr} data-alt-en={bottle.alt} data-alt-ar={bottle.altAr} widths={[180, 280, 420]} sizes="(max-width: 700px) 28vw, 13vw" loading="eager" />
+            <figcaption data-en={bottle.label} data-ar={bottle.labelAr}>{bottle.labelAr}</figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="hero-surface" aria-hidden="true"><span></span></div>
+      <span class="hero-drop-track" aria-hidden="true">
+        <svg class="hero-drop" viewBox="-10 -14 20 24" aria-hidden="true">
+          <path d="M0-12C-3-6-9 1-9 8A9 9 0 0 0 9 8C9 1 3-6 0-12Z" />
+        </svg>
+      </span>
+      <span class="hero-landing-ring" aria-hidden="true"></span>
     </div>
   </div>
-
-  <div class="hero-size-rail" aria-label="Available sizes" data-aria-en="Available sizes" data-aria-ar="الأحجام المتاحة">
-    {products.map((product) => <span>{product.size}</span>)}
-  </div>
-  <a class="hero-scroll-cue" href="#manifesto" aria-label="Continue to the Alsaqi story" data-aria-en="Continue to the Alsaqi story" data-aria-ar="تابع إلى قصة الساقي"><span></span><small data-en="FOLLOW THE CURRENT" data-ar="اتبع التيار">FOLLOW THE CURRENT</small></a>
 </section>

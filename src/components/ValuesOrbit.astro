@@ -1,25 +1,40 @@
 ---
 import { Image } from "astro:assets";
+import qualityPhoto from "../assets/alsaqi/14-quality-bottle.jpg";
+import trustPhoto from "../assets/alsaqi/17-business-contract.jpg";
+import commercialPhoto from "../assets/alsaqi/18-partnership-opportunity.jpg";
+import efficiencyPhoto from "../assets/alsaqi/02-production-line.jpg";
+import innovationPhoto from "../assets/alsaqi/11-market-hand.jpg";
+import sustainabilityPhoto from "../assets/alsaqi/06-road-expansion.jpg";
 import { values } from "../data/alsaqi";
-import { alsaqiImages } from "../data/assets";
 
-const valueList = Object.values(values);
+/* One brochure photo per value, matched to what the value actually claims:
+   the quality badges shot for standards, the signing for trust, and so on. */
+const photos = [
+  { src: qualityPhoto, ar: "عبوة الساقي مع شهادات الجودة", en: "Al Saqi bottle with quality certifications" },
+  { src: trustPhoto, ar: "توقيع اتفاقية شراكة مع الساقي", en: "Signing an Al Saqi partnership agreement" },
+  { src: commercialPhoto, ar: "عبوات الساقي والعائد التجاري", en: "Al Saqi bottles and commercial return" },
+  { src: efficiencyPhoto, ar: "خط إنتاج الساقي الأوتوماتيكي", en: "Al Saqi automated production line" },
+  { src: innovationPhoto, ar: "عبوة الساقي أمام أسطول التوزيع", en: "An Al Saqi bottle in front of the distribution fleet" },
+  { src: sustainabilityPhoto, ar: "عبوات الساقي على خلفية الطبيعة اليمنية", en: "Al Saqi bottles against the Yemeni landscape" },
+];
 ---
 
-<section class="institutional-values current-section">
-  <div class="current-shell values-heading">
-    <div><div class="chapter-label chapter-label-light"><span>07</span><span data-en="WHAT HOLDS US" data-ar="ما يثبت خطانا">WHAT HOLDS US</span></div>
-      <h2 data-en="Six values. One operating standard." data-ar="ست قيم… ومعيار واحد للعمل.">Six values. One operating standard.</h2>
-    </div>
-    <p data-en="The principles behind every product, relationship, and next move." data-ar="مبادئ تحكم كل منتج، وكل علاقة، وكل خطوة قادمة.">The principles behind every product, relationship, and next move.</p>
-  </div>
-  <div class="current-shell values-stage">
-    <figure><Image src={alsaqiImages.boardroom.src} alt={alsaqiImages.boardroom.alt.en} data-alt-en={alsaqiImages.boardroom.alt.en} data-alt-ar={alsaqiImages.boardroom.alt.ar} widths={[760, 1200]} sizes="(max-width: 900px) 100vw, 45vw" loading="lazy" /></figure>
-    <div class="institutional-orbit">
-      <div class="orbit-core"><small>AL SAQI</small><strong data-en="Built on clarity" data-ar="نبني بوضوح">Built on clarity</strong></div>
-      {valueList.map((value, index) => (
-        <article data-value-card style={`--value-index:${index}`}>
-          <span>0{index + 1}</span><h3 data-en={value.title.en} data-ar={value.title.ar}>{value.title.en}</h3><p data-en={value.text.en} data-ar={value.text.ar}>{value.text.en}</p>
+<section class="site-section values-section" id="values">
+  <div class="site-shell section-content reveal">
+    <header class="section-heading">
+      <span class="section-number">08</span>
+      <h2 data-en="Institutional values" data-ar="القيم المؤسسية">القيم المؤسسية</h2>
+    </header>
+    <div class="values-grid">
+      {values.map((value, index) => (
+        <article tabindex="0">
+          <figure class="value-photo">
+            <Image src={photos[index].src} alt={photos[index].ar} data-alt-en={photos[index].en} data-alt-ar={photos[index].ar} widths={[320, 520, 760]} sizes="(max-width: 760px) 100vw, 32vw" loading="lazy" />
+          </figure>
+          <span>0{index + 1}</span>
+          <h3 data-en={value.title.en} data-ar={value.title.ar}>{value.title.ar}</h3>
+          <p data-en={value.text.en} data-ar={value.text.ar}>{value.text.ar}</p>
         </article>
       ))}
     </div>

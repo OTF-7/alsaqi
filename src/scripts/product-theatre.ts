@@ -7,12 +7,21 @@ export function initProductTheatre() {
     const select = (option: HTMLButtonElement) => {
       const product = option.dataset.productOption ?? "750";
       root.dataset.product = product;
-      options.forEach((button) => button.setAttribute("aria-selected", String(button === option)));
-      images.forEach((image) => image.setAttribute("aria-hidden", String(image.dataset.productImage !== product)));
-      copies.forEach((copy) => { copy.hidden = copy.dataset.productCopy !== product; });
+      options.forEach((button) => {
+        const active = button === option;
+        button.setAttribute("aria-selected", String(active));
+        button.tabIndex = active ? 0 : -1;
+      });
+      images.forEach((image) => {
+        const active = image.dataset.productImage === product;
+        image.setAttribute("aria-hidden", String(!active));
+        image.tabIndex = active ? 0 : -1;
+      });
+      copies.forEach((copy) => copy.setAttribute("aria-hidden", String(copy.dataset.productCopy !== product)));
     };
 
     options.forEach((option, index) => {
+      option.tabIndex = option.getAttribute("aria-selected") === "true" ? 0 : -1;
       option.addEventListener("click", () => select(option));
       option.addEventListener("keydown", (event) => {
         if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;

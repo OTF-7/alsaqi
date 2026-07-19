@@ -6,11 +6,16 @@ export function initAudienceLens() {
     const select = (option: HTMLButtonElement) => {
       const audience = option.dataset.audienceOption ?? "consumer";
       root.dataset.audience = audience;
-      options.forEach((button) => button.setAttribute("aria-selected", String(button === option)));
-      panels.forEach((panel) => { panel.hidden = panel.dataset.audiencePanel !== audience; });
+      options.forEach((button) => {
+        const active = button === option;
+        button.setAttribute("aria-selected", String(active));
+        button.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach((panel) => panel.setAttribute("aria-hidden", String(panel.dataset.audiencePanel !== audience)));
     };
 
     options.forEach((option, index) => {
+      option.tabIndex = option.getAttribute("aria-selected") === "true" ? 0 : -1;
       option.addEventListener("click", () => select(option));
       option.addEventListener("keydown", (event) => {
         if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;

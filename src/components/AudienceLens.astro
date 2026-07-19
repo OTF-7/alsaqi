@@ -1,44 +1,74 @@
 ---
 import { Image } from "astro:assets";
-import { alsaqiContent, audiences } from "../data/alsaqi";
-import { alsaqiImages } from "../data/assets";
+import consumerPhoto from "../assets/alsaqi/10-consumer-shelf.jpg";
+import traderPhoto from "../assets/alsaqi/08-trader-store.jpg";
+import investorPhoto from "../assets/alsaqi/09-investor-desk.jpg";
+import { audiences, valueSection } from "../data/alsaqi";
 
-const audienceList = [
-  { id: "consumer", data: audiences.consumer, image: alsaqiImages.consumerShelf },
-  { id: "trader", data: audiences.trader, image: alsaqiImages.traderStore },
-  { id: "investor", data: audiences.investor, image: alsaqiImages.investorDesk },
+const lenses = [
+  { id: "consumer", data: audiences.consumer, photo: consumerPhoto, alt: "مياه الساقي في نقطة بيع المستهلك", altEn: "Al Saqi water at a consumer point of sale" },
+  { id: "trader", data: audiences.trader, photo: traderPhoto, alt: "تاجر مياه الساقي داخل المتجر", altEn: "Al Saqi water trader inside the store" },
+  { id: "investor", data: audiences.investor, photo: investorPhoto, alt: "فرصة استثمار الساقي على مكتب المستثمر", altEn: "Al Saqi investment opportunity at an investor desk" },
 ] as const;
+
+/* Node positions as percentages of the diagram box: `x` is measured from the
+   inline-start edge so the layout mirrors with the language, and the same pair
+   drives both the pill and the spoke drawn to it. Mid-row nodes sit level with
+   the hub, so they are kept clear of it horizontally. */
+const layouts: Record<number, { x: number; y: number }[]> = {
+  4: [{ x: 17, y: 15 }, { x: 83, y: 15 }, { x: 17, y: 85 }, { x: 83, y: 85 }],
+  5: [{ x: 17, y: 13 }, { x: 83, y: 13 }, { x: 17, y: 50 }, { x: 83, y: 50 }, { x: 50, y: 89 }],
+};
+const HUB = { x: 50, y: 50 };
+const nodesFor = (count: number) => layouts[count] ?? layouts[5];
 ---
 
-<section class="audience-lens current-section" id="value" data-audience-root data-audience="consumer">
-  <div class="current-shell audience-heading">
-    <div class="chapter-label"><span>04</span><span data-en="VALUE LENS" data-ar="منظور القيمة">VALUE LENS</span></div>
-    <h2 data-en={alsaqiContent.audiences.title.en} data-ar={alsaqiContent.audiences.title.ar}>{alsaqiContent.audiences.title.en}</h2>
-  </div>
-  <div class="current-shell audience-tabs" role="tablist" aria-label="Audience value" data-aria-en="Audience value" data-aria-ar="قيمة الساقي لكل فئة">
-    {audienceList.map((audience, index) => (
-      <button type="button" role="tab" data-audience-option={audience.id} aria-selected={index === 0 ? "true" : "false"}>
-        <span>0{index + 1}</span><strong data-en={audience.data.label.en} data-ar={audience.data.label.ar}>{audience.data.label.en}</strong>
-      </button>
-    ))}
-  </div>
+<section class="site-section value-section" id="value" data-audience-root data-audience="consumer">
+  <div class="site-shell section-content reveal">
+    <header class="section-heading">
+      <span class="section-number">04</span>
+      <h2 data-en={valueSection.title.en} data-ar={valueSection.title.ar}>{valueSection.title.ar}</h2>
+    </header>
 
-  <div class="current-shell audience-panels">
-    {audienceList.map((audience, audienceIndex) => (
-      <article class="audience-panel" data-audience-panel={audience.id} hidden={audienceIndex !== 0}>
-        <figure>
-          <Image src={audience.image.src} alt={audience.image.alt.en} data-alt-en={audience.image.alt.en} data-alt-ar={audience.image.alt.ar} widths={[620, 960, 1200]} sizes="(max-width: 900px) 100vw, 48vw" loading="lazy" />
-        </figure>
-        <div class="value-orbit">
-          <div class="value-core"><small data-en="FOR THE" data-ar="قيمة">FOR THE</small><strong data-en={audience.data.label.en} data-ar={audience.data.label.ar}>{audience.data.label.en}</strong></div>
-          <div class="value-points">
-            {audience.data.values.map((value, index) => (
-              <div style={`--point-index:${index};--point-count:${audience.data.values.length}`}><span>{index + 1}</span><p data-en={value.en} data-ar={value.ar}>{value.en}</p></div>
-            ))}
-          </div>
-          <p class="audience-promise" data-en={audience.data.promise.en} data-ar={audience.data.promise.ar}>{audience.data.promise.en}</p>
-        </div>
-      </article>
-    ))}
+    <div class="lens-tabs" role="tablist" aria-label="قيمة الساقي" data-aria-en="Al Saqi value perspectives" data-aria-ar="قيمة الساقي">
+      {lenses.map((lens, index) => (
+        <button type="button" role="tab" data-audience-option={lens.id} aria-selected={index === 0 ? "true" : "false"}>
+          <span>0{index + 1}</span><strong data-en={lens.data.label.en} data-ar={lens.data.label.ar}>{lens.data.label.ar}</strong>
+        </button>
+      ))}
+    </div>
+
+    <div class="lens-stage">
+      {lenses.map((lens, lensIndex) => {
+        const nodes = nodesFor(lens.data.values.length);
+        return (
+          <article class="lens-panel" data-audience-panel={lens.id} aria-hidden={lensIndex === 0 ? "false" : "true"}>
+            <figure class="lens-photo">
+              <Image src={lens.photo} alt={lens.alt} data-alt-en={lens.altEn} data-alt-ar={lens.alt} widths={[560, 840, 1200]} sizes="(max-width: 760px) 100vw, 35vw" loading="lazy" />
+            </figure>
+            <div class="lens-infographic" data-draw-section>
+              <svg class="lens-connectors" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                {lens.data.values.map((_, index) => (
+                  <path class="draw-path" pathLength="1" d={`M${HUB.x} ${HUB.y}L${nodes[index].x} ${nodes[index].y}`} />
+                ))}
+              </svg>
+              <div class="lens-center-hex">
+                <small>AL SAQI</small>
+                <h3 data-en={lens.data.heading.en} data-ar={lens.data.heading.ar}>{lens.data.heading.ar}</h3>
+              </div>
+              <ol class="lens-values">
+                {lens.data.values.map((value, index) => (
+                  <li tabindex="0" style={`--i:${index}; --x:${nodes[index].x}%; --y:${nodes[index].y}%`}>
+                    <span>0{index + 1}</span><p data-en={value.en} data-ar={value.ar}>{value.ar}</p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            {"equation" in lens.data && <p class="lens-equation" data-en={lens.data.equation.en} data-ar={lens.data.equation.ar}>{lens.data.equation.ar}</p>}
+          </article>
+        );
+      })}
+    </div>
+    <p class="display-close value-close" data-en={valueSection.close.en} data-ar={valueSection.close.ar}>{valueSection.close.ar}</p>
   </div>
 </section>

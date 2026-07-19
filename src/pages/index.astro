@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Header from "../components/Header.astro";
 import HeroCurrent from "../components/HeroCurrent.astro";
 import Manifesto from "../components/Manifesto.astro";
+import VisionMission from "../components/VisionMission.astro";
 import ProductTheatre from "../components/ProductTheatre.astro";
 import AudienceLens from "../components/AudienceLens.astro";
 import FactoryConveyor from "../components/FactoryConveyor.astro";
@@ -14,13 +15,20 @@ import GrowthModel from "../components/GrowthModel.astro";
 import PartnerInvitation from "../components/PartnerInvitation.astro";
 import WaterFooter from "../components/WaterFooter.astro";
 import WhatsApp from "../components/WhatsApp.astro";
+import "../styles/site.css";
 ---
 
-<Base title="Al Saqi Mineral Water Factory | Your refined choice" description="Al Saqi natural mineral water: refined for daily trust, reliable supply, and lasting partnerships.">
+<Base
+  title="مصنع الساقي للمياه المعدنية | الساقي… اختيارك الراقي"
+  description="مياه معدنية طبيعية بمعايير جودة عالية وتجربة تعكس الذوق الرفيع"
+  lang="ar"
+  dir="rtl"
+>
   <Header />
   <main>
     <HeroCurrent />
     <Manifesto />
+    <VisionMission />
     <ProductTheatre />
     <AudienceLens />
     <FactoryConveyor />

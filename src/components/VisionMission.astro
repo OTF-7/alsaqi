@@ -1,0 +1,39 @@
+---
+import BrandDrop from "./BrandDrop.astro";
+import { vision } from "../data/alsaqi";
+---
+
+<section class="site-section vision-section" id="vision">
+  <div class="site-shell section-content reveal">
+    <header class="section-heading">
+      <span class="section-number">02</span>
+      <h2 data-en={vision.title.en} data-ar={vision.title.ar}>{vision.title.ar}</h2>
+    </header>
+    <div class="vision-grid">
+      <article class="vision-card" data-draw-section>
+        <svg class="vision-podium" viewBox="0 0 500 620" aria-hidden="true">
+          <g class="bottle-art draw-path" pathLength="1">
+            <path d="M238 232H262V248C262 260 272 262 272 278V404C272 416 262 422 248 422H252C238 422 228 416 228 404V278C228 262 238 260 238 248Z" />
+            <path d="M244 300H256M234 344H266M234 388H266" />
+          </g>
+          <g class="podium-art draw-path draw-delay-1" pathLength="1">
+            <path d="M96 582V500H196V582M204 582V424H304V582M312 582V500H412V582M74 582H430" />
+            <path d="M258 452V540M258 452L242 464" />
+          </g>
+        </svg>
+        <span class="panel-letter">V</span>
+        <h3 data-en={vision.visionTitle.en} data-ar={vision.visionTitle.ar}>{vision.visionTitle.ar}</h3>
+        <p data-en={vision.visionText.en} data-ar={vision.visionText.ar}>{vision.visionText.ar}</p>
+      </article>
+      <article class="vision-card mission-card" data-draw-section>
+        <BrandDrop class="vision-drop" />
+        <span class="panel-letter">M</span>
+        <h3 data-en={vision.missionTitle.en} data-ar={vision.missionTitle.ar}>{vision.missionTitle.ar}</h3>
+        <p data-en={vision.missionText.en} data-ar={vision.missionText.ar}>{vision.missionText.ar}</p>
+        <ul class="tick-list compact-list">
+          {vision.missionPoints.map((point) => <li data-en={point.en} data-ar={point.ar}>{point.ar}</li>)}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,31 +1,39 @@
 ---
 import { Image } from "astro:assets";
-import { alsaqiContent } from "../data/alsaqi";
-import { alsaqiImages } from "../data/assets";
-
-const checkpoints = [
-  { en: "Food-safety systems", ar: "أنظمة سلامة الغذاء" },
-  { en: "Health-specification conformity", ar: "مطابقة المواصفات الصحية" },
-  { en: "Periodic quality tests", ar: "فحوصات جودة دورية" },
-  { en: "Direction toward ISO and HACCP", ar: "التوجه نحو ISO وHACCP" },
-] as const;
+import qualityPhoto from "../assets/alsaqi/04-lab-checklist.jpg";
+import { quality } from "../data/alsaqi";
 ---
 
-<section class="quality-gate current-section" data-certification-direction>
-  <div class="current-shell quality-layout">
-    <figure class="quality-art">
-      <Image src={alsaqiImages.qualityBottle.src} alt={alsaqiImages.qualityBottle.alt.en} data-alt-en={alsaqiImages.qualityBottle.alt.en} data-alt-ar={alsaqiImages.qualityBottle.alt.ar} widths={[620, 960, 1300]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
-      <div class="quality-pulse" aria-hidden="true"><span></span><span></span><span></span></div>
-    </figure>
-    <div class="quality-copy">
-      <p class="current-eyebrow" data-en="QUALITY GATE" data-ar="بوابة الجودة">QUALITY GATE</p>
-      <h2 data-en={alsaqiContent.quality.title.en} data-ar={alsaqiContent.quality.title.ar}>{alsaqiContent.quality.title.en}</h2>
-      <div class="quality-checkpoints">
-        {checkpoints.map((checkpoint, index) => (
-          <div><span>0{index + 1}</span><p data-en={checkpoint.en} data-ar={checkpoint.ar}>{checkpoint.en}</p></div>
-        ))}
+<section class="site-section quality-section" id="quality">
+  <div class="site-shell section-content reveal">
+    <header class="section-heading split-heading">
+      <div><span class="section-number">06</span><h2 data-en={quality.title.en} data-ar={quality.title.ar}>{quality.title.ar}</h2></div>
+      <ul class="quality-pillars">{quality.pillars.map((item) => <li data-en={item.en} data-ar={item.ar}>{item.ar}</li>)}</ul>
+    </header>
+
+    <div class="quality-layout">
+      <div class="quality-evidence" data-draw-section>
+        <figure class="quality-photo">
+          <Image src={qualityPhoto} alt="كشف معايير الجودة في مختبر الساقي" data-alt-en="Al Saqi quality standards checklist in the laboratory" data-alt-ar="كشف معايير الجودة في مختبر الساقي" widths={[620, 960, 1400]} sizes="(max-width: 900px) 100vw, 48vw" loading="lazy" />
+        </figure>
+        <svg class="quality-shield" viewBox="0 0 420 500" aria-hidden="true">
+          <path class="draw-path" pathLength="1" d="M210 25C258 67 311 79 375 84V235C375 341 307 424 210 475C113 424 45 341 45 235V84C109 79 162 67 210 25Z" />
+          <path class="draw-path draw-delay-1" pathLength="1" d="M210 76C247 105 284 116 329 122V234C329 307 284 366 210 410C136 366 91 307 91 234V122C136 116 173 105 210 76Z" />
+          <path class="draw-path draw-delay-2" pathLength="1" d="M145 236L190 281L282 177" />
+        </svg>
       </div>
-      <p class="certification-note" data-en={alsaqiContent.quality.certificationDirection.en} data-ar={alsaqiContent.quality.certificationDirection.ar}>{alsaqiContent.quality.certificationDirection.en}</p>
+      <article class="lab-sheet" data-quality-sheet>
+        <header><span>QC / 07</span><h3 data-en={quality.sheetTitle.en} data-ar={quality.sheetTitle.ar}>{quality.sheetTitle.ar}</h3></header>
+        <ol>
+          {quality.checks.map((item, index) => (
+            <li style={`--i:${index}`}><span class="quality-check" aria-hidden="true">✓</span><b>0{index + 1}</b><p data-en={item.en} data-ar={item.ar}>{item.ar}</p></li>
+          ))}
+        </ol>
+      </article>
+      <aside class="quality-commitment">
+        <p data-en={quality.commitment.en} data-ar={quality.commitment.ar}>{quality.commitment.ar}</p>
+        <ul>{quality.commitmentPoints.map((item, index) => <li><span>0{index + 1}</span><strong data-en={item.en} data-ar={item.ar}>{item.ar}</strong></li>)}</ul>
+      </aside>
     </div>
   </div>
 </section>

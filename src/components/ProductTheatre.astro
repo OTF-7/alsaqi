@@ -1,58 +1,57 @@
 ---
 import { Image } from "astro:assets";
-import bottle330 from "../assets/alsaqi/products/330.jpg";
-import bottle750 from "../assets/alsaqi/products/750.jpg";
-import bottle1200 from "../assets/alsaqi/products/1200.jpg";
-import { alsaqiContent, products } from "../data/alsaqi";
-import { alsaqiImages } from "../data/assets";
+import bottle330 from "../assets/alsaqi/cutouts/bottle-330.png";
+import bottle750 from "../assets/alsaqi/cutouts/bottle-750.png";
+import bottle1200 from "../assets/alsaqi/cutouts/bottle-1200.png";
+import { products, productSection } from "../data/alsaqi";
 
 const bottleImages = { "330": bottle330, "750": bottle750, "1200": bottle1200 } as const;
 ---
 
-<section class="product-theatre current-section" id="products" data-product-stage data-product="750">
-  <div class="current-shell theatre-heading">
-    <div>
-      <div class="chapter-label chapter-label-light"><span>03</span><span data-en="PRODUCT THEATRE" data-ar="مسرح المنتجات">PRODUCT THEATRE</span></div>
-      <h2 data-en={alsaqiContent.products.title.en} data-ar={alsaqiContent.products.title.ar}>{alsaqiContent.products.title.en}</h2>
-    </div>
-    <p data-en="The strategy is intelligent focus, not random expansion." data-ar="الاستراتيجية تعتمد على التركيز الذكي، وليس التوسع العشوائي.">The strategy is intelligent focus, not random expansion.</p>
-  </div>
+<section class="site-section product-section" id="products" data-product-stage data-product="750">
+  <div class="site-shell section-content reveal">
+    <header class="section-heading split-heading">
+      <div><span class="section-number">03</span><h2 data-en={productSection.title.en} data-ar={productSection.title.ar}>{productSection.title.ar}</h2></div>
+      <p data-en={productSection.intro.en} data-ar={productSection.intro.ar}>{productSection.intro.ar}</p>
+    </header>
 
-  <div class="current-shell theatre-layout">
-    <div class="product-visual">
-      <div class="product-family-ghost" aria-hidden="true">
-        <Image src={alsaqiImages.productFamily.src} alt="" widths={[720, 1100]} sizes="(max-width: 900px) 100vw, 54vw" loading="lazy" />
+    <div class="product-stage">
+      <div class="product-visual" aria-live="polite">
+        <div class="product-spotlight" aria-hidden="true"></div>
+        {products.map((product) => (
+          <figure class="product-bottle" tabindex={product.id === "750" ? "0" : "-1"} data-product-image={product.id} aria-hidden={product.id === "750" ? "false" : "true"}>
+            <Image src={bottleImages[product.id]} alt={`عبوة الساقي سعة ${product.id} مل`} data-alt-en={`Al Saqi ${product.id} ml bottle`} data-alt-ar={`عبوة الساقي سعة ${product.id} مل`} widths={[280, 440, 640]} sizes="(max-width: 760px) 58vw, 32vw" loading="lazy" />
+          </figure>
+        ))}
+        <div class="product-size-ghost" aria-hidden="true">
+          {products.map((product) => <span data-product-size={product.id} data-en={product.size.en} data-ar={product.size.ar}>{product.size.ar}</span>)}
+        </div>
       </div>
-      {products.map((product) => (
-        <figure class="product-shot" data-product-image={product.id} aria-hidden={product.id !== "750" ? "true" : "false"}>
-          <Image src={bottleImages[product.id]} alt={`${product.size} Al Saqi bottle`} data-alt-en={`${product.size} Al Saqi bottle`} data-alt-ar={`عبوة الساقي ${product.size}`} widths={[420, 700]} sizes="(max-width: 700px) 82vw, 42vw" loading="lazy" />
-        </figure>
-      ))}
-      <div class="displacement-ring" aria-hidden="true"><span></span><span></span><span></span></div>
+
+      <div class="product-control-panel">
+        <div class="product-tabs" role="tablist" aria-label="أحجام العبوات" data-aria-en="Bottle sizes" data-aria-ar="أحجام العبوات">
+          {products.map((product) => (
+            <button type="button" role="tab" data-product-option={product.id} aria-selected={product.id === "750" ? "true" : "false"}>
+              <strong data-en={product.size.en} data-ar={product.size.ar}>{product.size.ar}</strong><span data-en={product.short.en} data-ar={product.short.ar}>{product.short.ar}</span>
+            </button>
+          ))}
+        </div>
+        <div class="product-copy-stack">
+          {products.map((product) => (
+            <article data-product-copy={product.id} aria-hidden={product.id === "750" ? "false" : "true"}>
+              <p class="product-role" data-en={product.role.en} data-ar={product.role.ar}>{product.role.ar}</p>
+              <strong data-en={product.short.en} data-ar={product.short.ar}>{product.short.ar}</strong>
+            </article>
+          ))}
+        </div>
+        <p class="strategy-line" data-en={productSection.strategy.en} data-ar={productSection.strategy.ar}>{productSection.strategy.ar}</p>
+      </div>
     </div>
 
-    <div class="product-controls">
-      <div class="product-tabs" role="tablist" aria-label="Bottle sizes" data-aria-en="Bottle sizes" data-aria-ar="أحجام العبوات">
-        {products.map((product) => (
-          <button type="button" role="tab" data-product-option={product.id} aria-selected={product.id === "750" ? "true" : "false"}>
-            <strong>{product.size}</strong>
-            <span data-en={product.title.en} data-ar={product.title.ar}>{product.title.en}</span>
-          </button>
-        ))}
-      </div>
-      <div class="product-copy-stack">
-        {products.map((product) => (
-          <article data-product-copy={product.id} hidden={product.id !== "750"}>
-            <p class="current-eyebrow" data-en="WHERE IT WORKS" data-ar="أين يناسبك">WHERE IT WORKS</p>
-            <h3 data-en={product.title.en} data-ar={product.title.ar}>{product.title.en}</h3>
-            <p data-en={product.use.en} data-ar={product.use.ar}>{product.use.en}</p>
-          </article>
-        ))}
-      </div>
-      <div class="packaging-proof">
-        <p class="current-eyebrow" data-en="DESIGNED FOR THE SHELF" data-ar="مصممة للسوق">DESIGNED FOR THE SHELF</p>
-        <div><span data-en="Clear &amp; attractive" data-ar="واضحة وجذابة">Clear &amp; attractive</span><span data-en="Easy to carry" data-ar="سهلة الحمل">Easy to carry</span><span data-en="Prominent on shelf" data-ar="بارزة على الرف">Prominent on shelf</span></div>
-      </div>
+    <div class="packaging-strip">
+      <p data-en={productSection.packageIntro.en} data-ar={productSection.packageIntro.ar}>{productSection.packageIntro.ar}</p>
+      <ol>{productSection.packagePoints.map((point, index) => <li><span>0{index + 1}</span><b data-en={point.en} data-ar={point.ar}>{point.ar}</b></li>)}</ol>
     </div>
+    <p class="display-close product-close" data-en={productSection.close.en} data-ar={productSection.close.ar}>{productSection.close.ar}</p>
   </div>
 </section>

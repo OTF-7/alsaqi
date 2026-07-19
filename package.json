@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test": "for f in tests/*.mjs; do node \"$f\" && echo \"ok $f\" || exit 1; done"
   },
   "dependencies": {
     "astro": "^5.16.15"

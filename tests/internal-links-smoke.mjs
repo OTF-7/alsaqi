@@ -11,7 +11,14 @@ const source = [pagePath, ...mountedComponents]
   .map((file) => readFileSync(file, "utf8"))
   .join("\n");
 const ids = new Set([...source.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]));
-const internalTargets = [...source.matchAll(/\shref=["']#([^"']+)["']/g)].map((match) => match[1]);
+
+/* Links appear two ways: written straight into markup as href="#x", and declared
+   in component frontmatter as { href: "#x" } for a nav to map over. Both reach the
+   page, so both are checked — the footer's section links have broken before. */
+const internalTargets = [
+  ...[...source.matchAll(/\shref=["']#([^"']+)["']/g)].map((match) => match[1]),
+  ...[...source.matchAll(/href:\s*["']#([^"']+)["']/g)].map((match) => match[1]),
+];
 
 assert.ok(mountedComponents.length > 0, "homepage must mount components");
 assert.ok(internalTargets.length > 0, "homepage must expose internal navigation");

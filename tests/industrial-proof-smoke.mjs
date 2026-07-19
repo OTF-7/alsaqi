@@ -3,20 +3,21 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-for (const path of [
-  "src/components/FactoryConveyor.astro",
-  "src/components/QualityGate.astro",
-  "src/scripts/factory-conveyor.ts",
-]) {
+for (const path of ["src/components/FactoryConveyor.astro", "src/components/QualityGate.astro"]) {
   assert.ok(existsSync(join(root, path)), `${path} must exist`);
 }
 
 const factory = readFileSync(join(root, "src/components/FactoryConveyor.astro"), "utf8");
 const quality = readFileSync(join(root, "src/components/QualityGate.astro"), "utf8");
-const script = readFileSync(join(root, "src/scripts/factory-conveyor.ts"), "utf8");
 const data = readFileSync(join(root, "src/data/alsaqi.ts"), "utf8");
+const page = readFileSync(join(root, "src/pages/index.astro"), "utf8");
 const joined = [factory, quality, data].join("\n");
 
+for (const component of ["FactoryConveyor", "QualityGate"]) {
+  assert.match(page, new RegExp(`<${component} />`), `${component} must be mounted on the homepage`);
+}
+
+/* Production and quality claims, verbatim from the PDF. */
 for (const claim of [
   "automated production lines",
   "PLC / HMI",
@@ -24,15 +25,32 @@ for (const claim of [
   "Reduced waste",
   "food-safety systems",
   "health specifications",
-  "periodic quality testing",
-  "working toward ISO and HACCP certification",
+  "Periodic quality testing",
+  "Working toward ISO and HACCP certifications",
 ]) {
-  assert.match(joined, new RegExp(claim.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+  assert.ok(joined.includes(claim), `missing industrial claim: ${claim}`);
 }
 
-assert.match(factory, /data-factory-root/);
-assert.match(factory, /data-factory-stage/);
-assert.match(quality, /data-certification-direction/);
-assert.match(script, /--factory-progress/);
-assert.match(script, /prefers-reduced-motion/);
+/* The lab sheet enumerates the PDF's quality checks. */
+for (const check of [
+  "Physical test: color, taste, odor, turbidity",
+  "Salts and minerals (TDS): calcium and magnesium",
+  "Acidity (pH): neutral",
+  "Heavy metals: lead, arsenic, mercury",
+  "Microbiological test: bacteria, germs",
+  "Chemical substances: nitrates, sulfates, fluoride",
+  "Packaging safety: bottles, closure, date",
+]) {
+  assert.ok(data.includes(check), `missing quality check: ${check}`);
+}
+
+assert.match(factory, /id="factory"/);
+assert.match(factory, /factory\.capabilities\.map/, "capabilities must render from the content model");
+assert.match(factory, /factory\.methodology\.map/, "the operating methodology must render from the content model");
+assert.match(quality, /id="quality"/);
+assert.match(quality, /data-quality-sheet/, "the lab sheet must be observable for its check animation");
+assert.match(quality, /quality\.checks\.map/, "lab checks must render from the content model");
+assert.match(quality, /quality\.pillars\.map/, "quality pillars must render from the content model");
+
+/* The factory is working toward certification and must never claim to hold it. */
 assert.doesNotMatch(joined, /ISO.{0,20}certified|HACCP.{0,20}certified/i);

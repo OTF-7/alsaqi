@@ -1,24 +1,34 @@
 ---
 import { Image } from "astro:assets";
-import { alsaqiContent, responsibilityPillars } from "../data/alsaqi";
-import { alsaqiImages } from "../data/assets";
-
-const pillars = [
-  { key: "ENV", title: { en: "Environment", ar: "البيئة" }, text: responsibilityPillars.environment },
-  { key: "HLT", title: { en: "Health", ar: "الصحة" }, text: responsibilityPillars.health },
-  { key: "COM", title: { en: "Community", ar: "المجتمع" }, text: responsibilityPillars.community },
-  { key: "ECO", title: { en: "Economy", ar: "الاقتصاد" }, text: responsibilityPillars.economy },
-];
+import responsibilityPhoto from "../assets/alsaqi/15-responsibility-world.jpg";
+import { responsibility } from "../data/alsaqi";
 ---
 
-<section class="responsibility-matrix current-section" id="responsibility">
-  <figure class="responsibility-backdrop"><Image src={alsaqiImages.responsibilityWorld.src} alt={alsaqiImages.responsibilityWorld.alt.en} data-alt-en={alsaqiImages.responsibilityWorld.alt.en} data-alt-ar={alsaqiImages.responsibilityWorld.alt.ar} widths={[1000, 1600, 2200]} sizes="100vw" loading="lazy" /></figure>
-  <div class="current-shell responsibility-content">
-    <div class="chapter-label chapter-label-light"><span>08</span><span data-en="SHARED RESPONSIBILITY" data-ar="مسؤولية مشتركة">SHARED RESPONSIBILITY</span></div>
-    <h2 data-en={alsaqiContent.responsibility.title.en} data-ar={alsaqiContent.responsibility.title.ar}>{alsaqiContent.responsibility.title.en}</h2>
+<section class="site-section responsibility-section" id="responsibility" data-draw-section>
+  <div class="site-shell section-content reveal">
+    <header class="section-heading">
+      <span class="section-number">09</span>
+      <h2 data-en={responsibility.title.en} data-ar={responsibility.title.ar}>{responsibility.title.ar}</h2>
+    </header>
+    <div class="responsibility-intro">
+      <p class="section-lead" data-en={responsibility.intro.en} data-ar={responsibility.intro.ar}>{responsibility.intro.ar}</p>
+      <ul>{responsibility.actions.map((item) => <li data-en={item.en} data-ar={item.ar}>{item.ar}</li>)}</ul>
+    </div>
+    {/* The brochure's own responsibility artwork already maps these four
+        pillars, so it is shown whole rather than cropped behind copy. */}
+    <figure class="responsibility-figure">
+      <Image src={responsibilityPhoto} alt="أثر الساقي على البيئة والصحة والمجتمع والاقتصاد" data-alt-en="Al Saqi's impact across environment, health, community and economy" data-alt-ar="أثر الساقي على البيئة والصحة والمجتمع والاقتصاد" widths={[640, 900, 1280]} sizes="(max-width: 760px) 100vw, 60vw" loading="lazy" />
+    </figure>
     <div class="responsibility-grid">
-      {pillars.map((pillar, index) => (
-        <article data-responsibility-pillar><span>{pillar.key}</span><b>0{index + 1}</b><h3 data-en={pillar.title.en} data-ar={pillar.title.ar}>{pillar.title.en}</h3><p data-en={pillar.text.en} data-ar={pillar.text.ar}>{pillar.text.en}</p></article>
+      {responsibility.pillars.map((pillar, index) => (
+        <article tabindex="0" style={`--i:${index}`}>
+          <span>0{index + 1}</span>
+          <div class="pillar-drop" aria-hidden="true">
+            <svg viewBox="0 0 70 90"><path d="M35 4C29 20 10 39 10 57C10 74 21 84 35 84C49 84 60 74 60 57C60 39 41 20 35 4Z" /></svg>
+            <i></i>
+          </div>
+          <h3 data-en={pillar.title.en} data-ar={pillar.title.ar}>{pillar.title.ar}</h3><p data-en={pillar.text.en} data-ar={pillar.text.ar}>{pillar.text.ar}</p>
+        </article>
       ))}
     </div>
   </div>
