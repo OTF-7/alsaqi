@@ -32,7 +32,7 @@ const nodesFor = (count: number) => layouts[count] ?? layouts[5];
 
     <div class="lens-tabs" role="tablist" aria-label="قيمة الساقي" data-aria-en="Al Saqi value perspectives" data-aria-ar="قيمة الساقي">
       {lenses.map((lens, index) => (
-        <button type="button" role="tab" data-audience-option={lens.id} aria-selected={index === 0 ? "true" : "false"}>
+        <button id={`audience-tab-${lens.id}`} type="button" role="tab" data-audience-option={lens.id} aria-controls={`audience-panel-${lens.id}`} aria-selected={index === 0 ? "true" : "false"}>
           <span>0{index + 1}</span><strong data-en={lens.data.label.en} data-ar={lens.data.label.ar}>{lens.data.label.ar}</strong>
         </button>
       ))}
@@ -42,7 +42,7 @@ const nodesFor = (count: number) => layouts[count] ?? layouts[5];
       {lenses.map((lens, lensIndex) => {
         const nodes = nodesFor(lens.data.values.length);
         return (
-          <article class="lens-panel" data-audience-panel={lens.id} aria-hidden={lensIndex === 0 ? "false" : "true"}>
+          <article id={`audience-panel-${lens.id}`} class="lens-panel" role="tabpanel" aria-labelledby={`audience-tab-${lens.id}`} data-audience-panel={lens.id} aria-hidden={lensIndex === 0 ? "false" : "true"}>
             <figure class="lens-photo">
               <Image src={lens.photo} alt={lens.alt} data-alt-en={lens.altEn} data-alt-ar={lens.alt} widths={[560, 840, 1200]} sizes="(max-width: 760px) 100vw, 35vw" loading="lazy" />
             </figure>

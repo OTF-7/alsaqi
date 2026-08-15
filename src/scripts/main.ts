@@ -26,6 +26,9 @@ menuButton?.addEventListener("click", () => {
 });
 mobileMenu?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
 document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
+window.matchMedia("(min-width: 1121px)").addEventListener("change", (event) => {
+  if (event.matches) closeMenu();
+});
 
 const updateHeader = () => header?.classList.toggle("scrolled", window.scrollY > 24);
 window.addEventListener("scroll", updateHeader, { passive: true });
