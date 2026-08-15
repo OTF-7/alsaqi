@@ -10,7 +10,7 @@
     "test": "for f in tests/*.mjs; do node \"$f\" && echo \"ok $f\" || exit 1; done"
   },
   "dependencies": {
-    "astro": "^5.16.15"
+    "astro": "^7.2.2"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

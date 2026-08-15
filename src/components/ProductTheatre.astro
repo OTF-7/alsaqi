@@ -31,14 +31,14 @@ const bottleImages = { "330": bottle330, "750": bottle750, "1200": bottle1200 } 
       <div class="product-control-panel">
         <div class="product-tabs" role="tablist" aria-label="أحجام العبوات" data-aria-en="Bottle sizes" data-aria-ar="أحجام العبوات">
           {products.map((product) => (
-            <button type="button" role="tab" data-product-option={product.id} aria-selected={product.id === "750" ? "true" : "false"}>
+            <button id={`product-tab-${product.id}`} type="button" role="tab" data-product-option={product.id} aria-controls={`product-panel-${product.id}`} aria-selected={product.id === "750" ? "true" : "false"}>
               <strong data-en={product.size.en} data-ar={product.size.ar}>{product.size.ar}</strong><span data-en={product.short.en} data-ar={product.short.ar}>{product.short.ar}</span>
             </button>
           ))}
         </div>
         <div class="product-copy-stack">
           {products.map((product) => (
-            <article data-product-copy={product.id} aria-hidden={product.id === "750" ? "false" : "true"}>
+            <article id={`product-panel-${product.id}`} role="tabpanel" aria-labelledby={`product-tab-${product.id}`} data-product-copy={product.id} aria-hidden={product.id === "750" ? "false" : "true"}>
               <p class="product-role" data-en={product.role.en} data-ar={product.role.ar}>{product.role.ar}</p>
               <strong data-en={product.short.en} data-ar={product.short.ar}>{product.short.ar}</strong>
             </article>
