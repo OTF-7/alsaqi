@@ -10,7 +10,7 @@ const audience = read("src/components/AudienceLens.astro");
 const runtime = read("src/scripts/main.ts");
 const css = read("src/styles/site.css");
 
-/* Dynamic CSS variables are used for the wave and interaction positions. The
+/* Dynamic CSS variables are used for interaction and diagram positions. The
    attribute-specific directive permits those without weakening script-src or
    allowing inline style elements. */
 assert.match(headers, /style-src-attr 'unsafe-inline'/);

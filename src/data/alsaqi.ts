@@ -3,8 +3,8 @@ export type Localized = { en: string; ar: string };
 const t = (en: string, ar: string): Localized => ({ en, ar });
 
 export const contact = {
-  phone: "779779630",
-  whatsapp: "+967 779779630",
+  phone: "775757572",
+  whatsapp: "+967 775757572",
   email: "info@alsaqiwater.com",
   website: "www.alsaqiwater.com",
 } as const;

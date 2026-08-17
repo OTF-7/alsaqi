@@ -13,19 +13,29 @@ const bottles = [
 ---
 
 <section class="raqi-hero" id="top" aria-labelledby="hero-title">
+  <span class="hero-watermark" data-en="AL SAQI" data-ar="الساقي" aria-hidden="true">الساقي</span>
+  <div class="hero-coordinate hero-coordinate-top" aria-hidden="true">15.3694° N / 44.1910° E</div>
+  <div class="hero-coordinate hero-coordinate-side" aria-hidden="true">EST. / YEMEN / 2026</div>
   <div class="site-shell hero-layout">
     <div class="hero-copy reveal">
-      <p class="section-kicker" data-en={hero.kicker.en} data-ar={hero.kicker.ar}>{hero.kicker.ar}</p>
+      <div class="hero-register">
+        <span aria-hidden="true">01</span>
+        <p class="section-kicker" data-en={hero.kicker.en} data-ar={hero.kicker.ar}>{hero.kicker.ar}</p>
+      </div>
       <h1 id="hero-title" data-en={hero.title.en} data-ar={hero.title.ar}>{hero.title.ar}</h1>
       <p class="hero-support" data-en={hero.support.en} data-ar={hero.support.ar}>{hero.support.ar}</p>
       <div class="hero-actions">
         <a class="pill-button pill-button-light" href="#products"><span data-en={hero.primaryCta.en} data-ar={hero.primaryCta.ar}>{hero.primaryCta.ar}</span><b aria-hidden="true">←</b></a>
-        <a class="pill-button pill-button-line" href="#partners"><span data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</span><b aria-hidden="true">↗</b></a>
+        <a class="hero-text-link" href="#partners"><span data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</span><b aria-hidden="true">↗</b></a>
       </div>
       <p class="hero-brand-line" data-en={hero.brand.en} data-ar={hero.brand.ar}>{hero.brand.ar}</p>
     </div>
 
     <div class="hero-products reveal" aria-label="أحجام عبوات الساقي" data-aria-en="Al Saqi bottle sizes" data-aria-ar="أحجام عبوات الساقي">
+      <div class="hero-stage-heading">
+        <span>PRODUCT SYSTEM / 03</span>
+        <b data-en="BOTTLE FAMILY" data-ar="عائلة المنتجات">عائلة المنتجات</b>
+      </div>
       <div class="hero-spotlight" aria-hidden="true"></div>
       <div class="hero-bottles">
         {bottles.map((bottle) => (
@@ -36,6 +46,11 @@ const bottles = [
         ))}
       </div>
       <div class="hero-surface" aria-hidden="true"><span></span></div>
+      <ol class="hero-specs" aria-label="مقاسات العبوات" data-aria-en="Bottle specifications" data-aria-ar="مقاسات العبوات">
+        {bottles.map((bottle, index) => (
+          <li><span>0{index + 1}</span><b data-en={bottle.label} data-ar={bottle.labelAr}>{bottle.labelAr}</b></li>
+        ))}
+      </ol>
     </div>
   </div>
 </section>

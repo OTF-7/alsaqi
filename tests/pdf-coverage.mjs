@@ -39,8 +39,8 @@ for (const key of ["consumer", "trader", "investor", "launch", "establish", "exp
 /* Contact details, pinned to their field so a change to one cannot hide behind
    the same digits appearing in another. */
 for (const field of [
-  'phone: "779779630"',
-  'whatsapp: "+967 779779630"',
+  'phone: "775757572"',
+  'whatsapp: "+967 775757572"',
   'email: "info@alsaqiwater.com"',
   'website: "www.alsaqiwater.com"',
 ]) {

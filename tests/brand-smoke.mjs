@@ -31,10 +31,10 @@ assert.doesNotMatch(joined, /novan/i, "no Novan references may survive the rebra
 
 /* Contact details reach the page. */
 assert.ok(joined.includes("info@alsaqiwater.com"), "email must be present");
-assert.ok(joined.includes("779779630"), "phone number must be present");
+assert.ok(joined.includes("775757572"), "phone number must be present");
 assert.ok(joined.includes("www.alsaqiwater.com"), "website must be present");
 assert.match(files.partners, /wa\.me\/967/, "partner CTA must reach WhatsApp");
-assert.match(files.whatsapp, /wa\.me\/967779779630/, "floating WhatsApp button must use the real number");
+assert.match(files.whatsapp, /wa\.me\/967\$\{contact\.phone\}/, "floating WhatsApp button must use the shared contact number");
 assert.match(files.footer, /tel:\$\{contact\.phone\}|href=\{`tel:/, "footer must expose a tel: link");
 assert.match(files.footer, /mailto:/, "footer must expose a mailto: link");
 

@@ -13,6 +13,7 @@ for (const file of files) assert.ok(existsSync(join(root, file)), `${file} must 
 
 const [main, language] = files.map((file) => readFileSync(join(root, file), "utf8"));
 const layout = readFileSync(join(root, "src/layouts/Base.astro"), "utf8");
+const footer = readFileSync(join(root, "src/components/WaterFooter.astro"), "utf8");
 
 assert.match(layout, /scripts\/main\.ts/, "the layout must mount the runtime entry point");
 
@@ -27,8 +28,13 @@ assert.match(language, /root\.dir = language === "ar" \? "rtl" : "ltr"/, "switch
    IntersectionObserver both fall back to showing everything. */
 assert.match(main, /IntersectionObserver/);
 assert.match(main, /prefers-reduced-motion/);
-assert.match(main, /requestAnimationFrame/);
 assert.match(main, /showEverything/, "there must be a fallback that reveals all content");
+
+/* Al Saqi ends with an industrial contact plate, not the animated water footer
+   used by the earlier brand site. */
+assert.match(footer, /class="factory-footer"/);
+assert.doesNotMatch(footer, /footer-wave|data-wave-footer/);
+assert.doesNotMatch(main, /footer-wave|drawWave|waveLoop/);
 
 for (const initializer of ["initLanguage", "initProductTheatre", "initAudienceLens"]) {
   assert.match(main, new RegExp(initializer), `${initializer} must be initialized`);

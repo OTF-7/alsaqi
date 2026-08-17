@@ -16,7 +16,7 @@
 - Include all 19 mapped profile photographs and every approved PDF content chapter.
 - Never claim ISO or HACCP certification has already been obtained.
 - No heavy animation library, autoplay video, invented claims, or Novan/Stim changes.
-- Preserve `779779630`, `info@alsaqiwater.com`, and `www.alsaqiwater.com` exactly.
+- Preserve `775757572`, `info@alsaqiwater.com`, and `www.alsaqiwater.com` exactly.
 - All behavior must have keyboard, reduced-motion, mobile, and no-JavaScript fallbacks.
 
 ---
