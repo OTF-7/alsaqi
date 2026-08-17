@@ -95,5 +95,5 @@ assert.doesNotMatch(content, /ISO.{0,20}certified|HACCP.{0,20}certified/i);
 assert.match(content, /const t = \(en: string, ar: string\): Localized/, "the bilingual helper must gate all copy");
 
 /* The 19 photographs lifted from the PDF stay in the repo. */
-const photos = readdirSync(join(root, "src/assets/alsaqi")).filter((file) => /^\d{2}-.+\.(png|jpe?g)$/.test(file));
+const photos = readdirSync(join(root, "src/assets/alsaqi")).filter((file) => /^\d{2}-.+\.webp$/.test(file));
 assert.equal(photos.length, 19, "all 19 PDF source photographs must remain available");

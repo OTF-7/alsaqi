@@ -20,10 +20,10 @@ assert.match(page, /<ProductTheatre \/>/, "ProductTheatre must be mounted on the
 for (const size of ["330", "750", "1200"]) {
   assert.match(data, new RegExp(`id: "${size}"`), `product ${size} must exist in the content model`);
   assert.ok(
-    existsSync(join(root, `src/assets/alsaqi/cutouts/bottle-${size}.png`)),
+    existsSync(join(root, `src/assets/alsaqi/cutouts/bottle-${size}.webp`)),
     `the ${size} bottle cutout must exist`,
   );
-  assert.match(component, new RegExp(`cutouts/bottle-${size}\\.png`), `the ${size} cutout must be imported`);
+  assert.match(component, new RegExp(`cutouts/bottle-${size}\\.webp`), `the ${size} cutout must be imported`);
 }
 
 /* Selector wiring: tabs, images, and copy are all keyed by product id. */

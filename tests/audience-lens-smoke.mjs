@@ -26,7 +26,7 @@ assert.equal(
   "each of the three audiences must keep its value list",
 );
 
-for (const photo of ["10-consumer-shelf.jpg", "08-trader-store.jpg", "09-investor-desk.jpg"]) {
+for (const photo of ["10-consumer-shelf.webp", "08-trader-store.webp", "09-investor-desk.webp"]) {
   assert.ok(existsSync(join(root, "src/assets/alsaqi", photo)), `${photo} must exist`);
   assert.ok(component.includes(photo), `${photo} must be imported`);
 }
