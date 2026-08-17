@@ -10,11 +10,11 @@ const audience = read("src/components/AudienceLens.astro");
 const runtime = read("src/scripts/main.ts");
 const css = read("src/styles/site.css");
 
-/* Dynamic CSS variables are used for interaction and diagram positions. The
-   attribute-specific directive permits those without weakening script-src or
-   allowing inline style elements. */
-assert.match(headers, /style-src-attr 'unsafe-inline'/);
+/* Layout and animation data are expressed through attributes and stylesheet
+   selectors, so the deployed CSP can reject all inline style attributes. */
+assert.doesNotMatch(headers, /style-src-attr\s+'unsafe-inline'/);
 assert.doesNotMatch(headers, /style-src [^;]*'unsafe-inline'/);
+assert.doesNotMatch(audience, /\bstyle\s*=/);
 
 /* Every tab declares its controlled panel, and every panel points back to the
    tab that labels it. */

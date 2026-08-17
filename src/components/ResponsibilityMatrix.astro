@@ -21,7 +21,7 @@ import { responsibility } from "../data/alsaqi";
     </figure>
     <div class="responsibility-grid">
       {responsibility.pillars.map((pillar, index) => (
-        <article tabindex="0" style={`--i:${index}`}>
+        <article tabindex="0" data-stagger={index}>
           <span>0{index + 1}</span>
           <div class="pillar-drop" aria-hidden="true">
             <svg viewBox="0 0 70 90"><path d="M35 4C29 20 10 39 10 57C10 74 21 84 35 84C49 84 60 74 60 57C60 39 41 20 35 4Z" /></svg>

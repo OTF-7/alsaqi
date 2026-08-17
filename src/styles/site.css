@@ -448,8 +448,7 @@ html[dir="ltr"] .footer-statement p { font-family: var(--display); line-height: 
 .footer-links a:hover, .footer-contact a:hover { color: var(--site-lime); }
 .footer-contact { font-style: normal; }
 .footer-contact > span { color: var(--site-lime); font-family: var(--body); font-size: .52rem; font-weight: 700; letter-spacing: .13em; }
-.footer-bottom { align-items: center; border: 1px solid var(--site-line); color: rgb(255 255 255 / 46%); display: flex; font-size: .68rem; gap: 2rem; justify-content: space-between; padding-block: 1.4rem 2rem; position: relative; z-index: 2; }
-.footer-bottom span { max-width: 90ch; }
+.footer-bottom { align-items: center; border: 1px solid var(--site-line); color: rgb(255 255 255 / 46%); display: flex; font-size: .68rem; gap: 2rem; justify-content: flex-end; padding-block: 1.4rem 2rem; position: relative; z-index: 2; }
 .footer-bottom a { align-items: center; border: 1px solid rgb(255 255 255 / 24%); display: flex; flex: 0 0 auto; height: 38px; justify-content: center; width: 38px; }
 
 /* Horizontal assembly reveals: content remains visible without JS and has a timed failsafe. */
@@ -461,6 +460,11 @@ html[dir="ltr"] .motion-ready .reveal { transform: translateX(-30px); }
 .motion-ready .draw-delay-1 { transition-delay: .14s; }
 .motion-ready .draw-delay-2 { transition-delay: .27s; }
 .motion-ready .quality-check { opacity: 0; transform: scale(.25) rotate(-20deg); }
+.lab-sheet li[data-stagger="0"], .equation-term[data-stagger="0"], .lens-values li[data-stagger="0"], .responsibility-grid article[data-stagger="0"] { --i: 0; }
+.lab-sheet li[data-stagger="1"], .equation-term[data-stagger="1"], .lens-values li[data-stagger="1"], .responsibility-grid article[data-stagger="1"] { --i: 1; }
+.lab-sheet li[data-stagger="2"], .equation-term[data-stagger="2"], .lens-values li[data-stagger="2"], .responsibility-grid article[data-stagger="2"] { --i: 2; }
+.lab-sheet li[data-stagger="3"], .equation-term[data-stagger="3"], .lens-values li[data-stagger="3"], .responsibility-grid article[data-stagger="3"] { --i: 3; }
+.lab-sheet li[data-stagger="4"], .equation-term[data-stagger="4"], .lens-values li[data-stagger="4"], .responsibility-grid article[data-stagger="4"] { --i: 4; }
 .motion-ready .lab-sheet.is-checked .quality-check { animation: check-stamp .55s var(--site-ease) forwards; animation-delay: calc(var(--i) * 110ms); }
 .motion-ready .equation-term, .motion-ready .equation-row > b, .motion-ready .equation-row > strong { opacity: 0; transform: translateY(12px) scale(.94); }
 .motion-ready [data-equation].is-visible .equation-term, .motion-ready [data-equation].is-visible .equation-row > b, .motion-ready [data-equation].is-visible .equation-row > strong { animation: equation-in .5s var(--site-ease) forwards; }
@@ -650,9 +654,8 @@ html[dir="ltr"] .about-photo::after { transform: scaleX(-1); }
 .lens-photo::after { background: linear-gradient(90deg, rgb(4 22 36 / 78%), rgb(4 22 36 / 15%)), linear-gradient(0deg, rgb(4 22 36 / 84%), transparent 55%, rgb(4 22 36 / 42%)); content: ""; inset: 0; position: absolute; }
 html[dir="ltr"] .lens-photo::after { transform: scaleX(-1); }
 .lens-photo img { filter: saturate(.6) contrast(1.1) brightness(.67) hue-rotate(5deg); height: 100%; object-fit: cover; width: 100%; }
-/* Radial value map. Every node's pill and its spoke are placed from the same
-   --x/--y pair emitted per item, so the lines always land on the pills. The hub
-   and pills are opaque and stack above the spokes, which hides each line's ends. */
+/* Radial value map. Each node uses a data-position selector rather than an
+   inline style, so strict production CSP headers cannot disable its layout. */
 .lens-infographic { min-height: 560px; position: relative; }
 /* Explicit height: an <svg> with only a width takes its intrinsic aspect ratio,
    which would scale the spokes against a different box than the pills use. */
@@ -666,11 +669,20 @@ html[dir="rtl"] .lens-connectors { transform: scaleX(-1); }
 .lens-values li {
   --lift: 0px; --tx: -50%;
   background: rgb(4 22 36 / 92%); border: 1px solid color-mix(in srgb, var(--lens-accent) 38%, transparent); border-radius: 0;
-  grid-template-columns: 30px 1fr; inset-block-start: var(--y); inset-inline-start: var(--x); min-height: 72px; opacity: 0; padding: .6rem .9rem; position: absolute;
+  grid-template-columns: 30px 1fr; min-height: 72px; opacity: 0; padding: .6rem .9rem; position: absolute;
   transform: translate(var(--tx), calc(-50% + var(--lift)));
   transition: opacity 180ms ease calc(var(--i) * 65ms), transform 240ms var(--site-ease), border-color 320ms ease, box-shadow 320ms ease;
   width: min(30%, 200px); z-index: 3;
 }
+.lens-values li[data-position="17-13"] { inset-block-start: 13%; inset-inline-start: 17%; }
+.lens-values li[data-position="83-13"] { inset-block-start: 13%; inset-inline-start: 83%; }
+.lens-values li[data-position="17-15"] { inset-block-start: 15%; inset-inline-start: 17%; }
+.lens-values li[data-position="83-15"] { inset-block-start: 15%; inset-inline-start: 83%; }
+.lens-values li[data-position="17-50"] { inset-block-start: 50%; inset-inline-start: 17%; }
+.lens-values li[data-position="83-50"] { inset-block-start: 50%; inset-inline-start: 83%; }
+.lens-values li[data-position="17-85"] { inset-block-start: 85%; inset-inline-start: 17%; }
+.lens-values li[data-position="83-85"] { inset-block-start: 85%; inset-inline-start: 83%; }
+.lens-values li[data-position="50-89"] { inset-block-start: 89%; inset-inline-start: 50%; }
 html[dir="rtl"] .lens-values li { --tx: 50%; }
 .lens-values li p { font-size: clamp(.72rem, 1vw, .87rem); }
 .lens-equation { align-self: end; grid-column: 2; margin-top: 1.5rem; position: relative; z-index: 5; }

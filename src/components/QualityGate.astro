@@ -26,7 +26,7 @@ import { quality } from "../data/alsaqi";
         <header><span>QC / 07</span><h3 data-en={quality.sheetTitle.en} data-ar={quality.sheetTitle.ar}>{quality.sheetTitle.ar}</h3></header>
         <ol>
           {quality.checks.map((item, index) => (
-            <li style={`--i:${index}`}><span class="quality-check" aria-hidden="true">✓</span><b>0{index + 1}</b><p data-en={item.en} data-ar={item.ar}>{item.ar}</p></li>
+            <li data-stagger={index}><span class="quality-check" aria-hidden="true">✓</span><b>0{index + 1}</b><p data-en={item.en} data-ar={item.ar}>{item.ar}</p></li>
           ))}
         </ol>
       </article>

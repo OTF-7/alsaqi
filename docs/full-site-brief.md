@@ -117,7 +117,7 @@ Final line (biggest display moment of the page): `الساقي… نقاء يُ�
 CTA buttons: WhatsApp link (+967 775757572), `info@alsaqiwater.com`.
 
 ### 14. Footer — Wave Footer 2.0 — id `footer`
-Novan-style living wavify wave (SVG path regenerated per frame — reuse the mechanic from the old WaterFooter/main.ts) BUT: the water level = scroll progress (system 1: The Pour ends here, the page has been filling it). Above the waterline: faint Yemen line-art skyline (variant 3 vocabulary). In the water body: brand logo, nav links, contact (`775757572`, `info@alsaqiwater.com`, `www.alsaqiwater.com`), tagline `الساقي… اختيارك الراقي`, and `مصنع الساقي للمياه المعدنية | Al Saqi Mineral Water Factory`. Copyright line: keep the existing Al-Romana rights line from the current footer with year 2026.
+Novan-style living wavify wave (SVG path regenerated per frame — reuse the mechanic from the old WaterFooter/main.ts) BUT: the water level = scroll progress (system 1: The Pour ends here, the page has been filling it). Above the waterline: faint Yemen line-art skyline (variant 3 vocabulary). In the water body: brand logo, nav links, contact (`775757572`, `info@alsaqiwater.com`, `www.alsaqiwater.com`), tagline `الساقي… اختيارك الراقي`, and `مصنع الساقي للمياه المعدنية | Al Saqi Mineral Water Factory`.
 
 ## Cleanup
 - Remove/replace broken old components no longer used (the blank-section reveal bug must be gone). Delete dead files.

@@ -22,7 +22,7 @@ const phases = [marketPhases.launch, marketPhases.establish, marketPhases.expand
       <p data-en={market.equationTitle.en} data-ar={market.equationTitle.ar}>{market.equationTitle.ar}</p>
       <div class="equation-row">
         {market.equationParts.map((part, index) => (
-          <Fragment><span class="equation-term" style={`--i:${index}`} data-en={part.en} data-ar={part.ar}>{part.ar}</span>{index < market.equationParts.length - 1 && <b aria-hidden="true">+</b>}</Fragment>
+          <Fragment><span class="equation-term" data-stagger={index} data-en={part.en} data-ar={part.ar}>{part.ar}</span>{index < market.equationParts.length - 1 && <b aria-hidden="true">+</b>}</Fragment>
         ))}
         <b aria-hidden="true">=</b><strong data-en={market.equationResult.en} data-ar={market.equationResult.ar}>{market.equationResult.ar}</strong>
       </div>

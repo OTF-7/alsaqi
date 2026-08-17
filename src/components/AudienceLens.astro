@@ -58,7 +58,7 @@ const nodesFor = (count: number) => layouts[count] ?? layouts[5];
               </div>
               <ol class="lens-values">
                 {lens.data.values.map((value, index) => (
-                  <li tabindex="0" style={`--i:${index}; --x:${nodes[index].x}%; --y:${nodes[index].y}%`}>
+                  <li tabindex="0" data-stagger={index} data-position={`${nodes[index].x}-${nodes[index].y}`}>
                     <span>0{index + 1}</span><p data-en={value.en} data-ar={value.ar}>{value.ar}</p>
                   </li>
                 ))}
