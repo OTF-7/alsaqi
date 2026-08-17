@@ -4,11 +4,11 @@ import logo from "../assets/logo.png";
 import { hero } from "../data/alsaqi";
 
 const nav = [
-  { href: "#about", en: "About", ar: "الملخص التنفيذي" },
+  { href: "#about", en: "Profile", ar: "الملف" },
   { href: "#products", en: "Products", ar: "المنتجات" },
-  { href: "#quality", en: "Quality", ar: "الجودة والمعايير" },
-  { href: "#market", en: "Market", ar: "فلسفة العمل" },
-  { href: "#growth", en: "Growth", ar: "فرص النمو والتوسع" },
+  { href: "#quality", en: "Quality", ar: "الجودة" },
+  { href: "#market", en: "Market", ar: "السوق" },
+  { href: "#growth", en: "Growth", ar: "النمو" },
 ];
 ---
 
@@ -16,11 +16,19 @@ const nav = [
   <div class="header-shell">
     <a class="site-brand" href="#top" aria-label={hero.brand.ar} data-aria-en={hero.brand.en} data-aria-ar={hero.brand.ar}>
       <Image src={logo} alt="" widths={[72, 108]} sizes="54px" loading="eager" />
-      <span data-en={hero.brand.en} data-ar={hero.brand.ar}>{hero.brand.ar}</span>
+      <span class="brand-copy">
+        <b data-en="Al Saqi" data-ar="الساقي">الساقي</b>
+        <small data-en="MINERAL WATER / YEMEN" data-ar="مياه معدنية / اليمن">مياه معدنية / اليمن</small>
+      </span>
     </a>
 
     <nav class="desktop-nav" aria-label="التنقل الرئيسي" data-aria-en="Primary navigation" data-aria-ar="التنقل الرئيسي">
-      {nav.map((item) => <a href={item.href} data-en={item.en} data-ar={item.ar}>{item.ar}</a>)}
+      {nav.map((item, index) => (
+        <a href={item.href}>
+          <span aria-hidden="true">0{index + 1}</span>
+          <b data-en={item.en} data-ar={item.ar}>{item.ar}</b>
+        </a>
+      ))}
     </nav>
 
     <div class="header-actions">
@@ -28,13 +36,15 @@ const nav = [
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
         <button type="button" data-lang="ar" aria-pressed="true">ع</button>
       </div>
-      <a class="header-contact" href="#partners"><span data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</span></a>
+      <a class="header-contact" href="#partners">
+        <span data-en="Partnership" data-ar="الشراكة">الشراكة</span><b aria-hidden="true">↗</b>
+      </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="افتح القائمة" data-aria-en="Open menu" data-aria-ar="افتح القائمة"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <nav class="mobile-menu" id="mobile-menu" aria-label="تنقل الجوال" data-aria-en="Mobile navigation" data-aria-ar="تنقل الجوال">
-  {nav.map((item) => <a href={item.href} data-en={item.en} data-ar={item.ar}>{item.ar}</a>)}
-  <a href="#partners" data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</a>
+  {nav.map((item, index) => <a href={item.href}><span aria-hidden="true">0{index + 1}</span><b data-en={item.en} data-ar={item.ar}>{item.ar}</b></a>)}
+  <a href="#partners"><span aria-hidden="true">06</span><b data-en={hero.partnerCta.en} data-ar={hero.partnerCta.ar}>{hero.partnerCta.ar}</b></a>
 </nav>

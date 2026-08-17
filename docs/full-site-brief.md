@@ -114,14 +114,14 @@ Watermark: «الشراكة». Title: `دعوة للشراكة`.
 Invitation (verbatim): `يدعو مصنع الساقي:` `التجار الباحثين عن منتج مربح وسريع البيع` / `المستثمرين الباحثين عن فرصة مستقرة وقابلة للنمو` / `شركاء التوسع والتوزيع` / `للمشاركة في بناء علامة قوية في سوق واسع ومستمر.`
 Conclusion block (verbatim, cinematic): `مصنع الساقي للمياه المعدنية ليس مجرد مشروع إنتاج… بل مشروع علامة تجارية قابلة للسيطرة على السوق:` `منتج أساسي لا يتوقف الطلب عليه` / `نموذج تشغيلي واضح` / `فرصة توسع كبيرة` / `عائد استثماري واعد`
 Final line (biggest display moment of the page): `الساقي… نقاء يُوثق، وفرصة تُستثمر.`
-CTA buttons: WhatsApp link (+967 779779630), `info@alsaqiwater.com`.
+CTA buttons: WhatsApp link (+967 775757572), `info@alsaqiwater.com`.
 
 ### 14. Footer — Wave Footer 2.0 — id `footer`
-Novan-style living wavify wave (SVG path regenerated per frame — reuse the mechanic from the old WaterFooter/main.ts) BUT: the water level = scroll progress (system 1: The Pour ends here, the page has been filling it). Above the waterline: faint Yemen line-art skyline (variant 3 vocabulary). In the water body: brand logo, nav links, contact (`779779630`, `info@alsaqiwater.com`, `www.alsaqiwater.com`), tagline `الساقي… اختيارك الراقي`, and `مصنع الساقي للمياه المعدنية | Al Saqi Mineral Water Factory`. Copyright line: keep the existing Al-Romana rights line from the current footer with year 2026.
+Novan-style living wavify wave (SVG path regenerated per frame — reuse the mechanic from the old WaterFooter/main.ts) BUT: the water level = scroll progress (system 1: The Pour ends here, the page has been filling it). Above the waterline: faint Yemen line-art skyline (variant 3 vocabulary). In the water body: brand logo, nav links, contact (`775757572`, `info@alsaqiwater.com`, `www.alsaqiwater.com`), tagline `الساقي… اختيارك الراقي`, and `مصنع الساقي للمياه المعدنية | Al Saqi Mineral Water Factory`. Copyright line: keep the existing Al-Romana rights line from the current footer with year 2026.
 
 ## Cleanup
 - Remove/replace broken old components no longer used (the blank-section reveal bug must be gone). Delete dead files.
-- Keep WhatsApp floating button (number 779779630).
+- Keep WhatsApp floating button (number 775757572).
 - Page `<title>`/meta: `مصنع الساقي للمياه المعدنية | الساقي… اختيارك الراقي` (AR primary; EN via existing mechanism if supported).
 
 ## Definition of done

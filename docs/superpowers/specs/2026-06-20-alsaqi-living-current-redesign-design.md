@@ -17,7 +17,7 @@ The redesign is grounded in both client PDFs:
 
 The profile contains 19 major photographic assets, embedded Noor, Avant Garde, Proxima Nova, and Myriad Pro typography, and a recurring navy/cyan/green identity. The folder adds a condensed brand promise, exact contact details, product positioning, commitment, responsibility, and packaging attributes.
 
-The contact contract is `779779630`, `info@alsaqiwater.com`, and `www.alsaqiwater.com`.
+The contact contract is `775757572`, `info@alsaqiwater.com`, and `www.alsaqiwater.com`.
 
 ## Selected Direction
 
