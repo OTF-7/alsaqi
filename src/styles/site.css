@@ -448,7 +448,8 @@ html[dir="ltr"] .footer-statement p { font-family: var(--display); line-height: 
 .footer-links a:hover, .footer-contact a:hover { color: var(--site-lime); }
 .footer-contact { font-style: normal; }
 .footer-contact > span { color: var(--site-lime); font-family: var(--body); font-size: .52rem; font-weight: 700; letter-spacing: .13em; }
-.footer-bottom { align-items: center; border: 1px solid var(--site-line); color: rgb(255 255 255 / 46%); display: flex; font-size: .68rem; gap: 2rem; justify-content: flex-end; padding-block: 1.4rem 2rem; position: relative; z-index: 2; }
+.footer-bottom { align-items: center; border: 1px solid var(--site-line); color: rgb(255 255 255 / 46%); display: flex; font-size: .68rem; gap: 2rem; justify-content: space-between; padding-block: 1.4rem 2rem; position: relative; z-index: 2; }
+.footer-bottom span { max-width: 90ch; }
 .footer-bottom a { align-items: center; border: 1px solid rgb(255 255 255 / 24%); display: flex; flex: 0 0 auto; height: 38px; justify-content: center; width: 38px; }
 
 /* Horizontal assembly reveals: content remains visible without JS and has a timed failsafe. */
