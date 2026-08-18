@@ -685,7 +685,8 @@ html[dir="rtl"] .lens-connectors { transform: scaleX(-1); }
 .lens-values li[data-position="83-85"] { inset-block-start: 85%; inset-inline-start: 83%; }
 .lens-values li[data-position="50-89"] { inset-block-start: 89%; inset-inline-start: 50%; }
 html[dir="rtl"] .lens-values li { --tx: 50%; }
-.lens-values li p { font-size: clamp(.72rem, 1vw, .87rem); }
+.lens-values li p { font-size: clamp(.72rem, 1vw, .87rem); min-width: 0; overflow-wrap: anywhere; }
+html[dir="rtl"] .lens-values li p { line-height: 1.75; }
 .lens-equation { align-self: end; grid-column: 2; margin-top: 1.5rem; position: relative; z-index: 5; }
 
 .factory-stage { margin-inline: calc(50% - 50vw); padding-inline: max(var(--site-gutter), calc((100vw - var(--site-shell)) / 2)); }
@@ -839,7 +840,6 @@ html[dir="ltr"] :is(.product-tabs button, .lens-tabs button)::before { transform
     transform: translateY(var(--lift));
     width: 100%;
   }
-  .lens-values li p { min-width: 0; overflow-wrap: anywhere; }
   .lens-equation { margin-top: 1rem; }
   .factory-stage { padding-inline: var(--site-gutter); }
   .quality-evidence { min-height: 350px; }

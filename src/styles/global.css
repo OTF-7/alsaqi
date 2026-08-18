@@ -58,7 +58,7 @@ a, button { touch-action: manipulation; }
 
 @media (max-width: 640px) {
   body { font-size: 15px; }
-  .whatsapp { bottom: 1rem; height: 48px; padding: 0; width: 48px; }
+  .whatsapp { bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); height: 48px; padding: 0; width: 48px; }
   .whatsapp span, .whatsapp b { display: none; }
 }
 

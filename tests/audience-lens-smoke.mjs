@@ -57,3 +57,8 @@ assert.match(
   /\.lens-values li\[data-position\]\s*\{[^}]*inset-block-start:\s*auto;[^}]*inset-inline-start:\s*auto;[^}]*width:\s*100%;[^}]*\}/,
   "mobile audience cards must clear their desktop anchors and fit the viewport",
 );
+assert.match(
+  styles,
+  /\.lens-values li p \{[^}]*min-width:\s*0;[^}]*overflow-wrap:\s*anywhere;[^}]*\}/,
+  "localized audience copy must wrap without colliding with its number column",
+);
