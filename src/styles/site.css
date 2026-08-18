@@ -829,7 +829,17 @@ html[dir="ltr"] :is(.product-tabs button, .lens-tabs button)::before { transform
   .lens-connectors { display: none; }
   .lens-center-hex { height: 150px; margin-inline: auto; position: static; transform: none; width: 170px; }
   .lens-values { display: grid; gap: .65rem; margin-top: 1.25rem; position: static; }
-  .lens-values li { inset: auto; min-height: 66px; opacity: 1; position: relative; transform: translateY(var(--lift)); width: 100%; }
+  .lens-values li[data-position] {
+    grid-template-columns: 30px minmax(0, 1fr);
+    inset-block-start: auto;
+    inset-inline-start: auto;
+    min-height: 66px;
+    opacity: 1;
+    position: relative;
+    transform: translateY(var(--lift));
+    width: 100%;
+  }
+  .lens-values li p { min-width: 0; overflow-wrap: anywhere; }
   .lens-equation { margin-top: 1rem; }
   .factory-stage { padding-inline: var(--site-gutter); }
   .quality-evidence { min-height: 350px; }

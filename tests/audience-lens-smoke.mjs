@@ -13,6 +13,7 @@ const component = readFileSync(componentPath, "utf8");
 const script = readFileSync(scriptPath, "utf8");
 const data = readFileSync(join(root, "src/data/alsaqi.ts"), "utf8");
 const page = readFileSync(join(root, "src/pages/index.astro"), "utf8");
+const styles = readFileSync(join(root, "src/styles/site.css"), "utf8");
 
 assert.match(page, /<AudienceLens \/>/, "AudienceLens must be mounted on the homepage");
 
@@ -48,3 +49,11 @@ assert.match(script, /aria-selected/);
 assert.match(script, /keydown/);
 /* Arrow keys must follow reading direction, which flips with the language. */
 assert.match(script, /dir === "rtl"/, "keyboard navigation must be direction-aware");
+
+/* Desktop node coordinates have higher specificity than the generic mobile
+   card rule, so mobile must explicitly clear both logical start positions. */
+assert.match(
+  styles,
+  /\.lens-values li\[data-position\]\s*\{[^}]*inset-block-start:\s*auto;[^}]*inset-inline-start:\s*auto;[^}]*width:\s*100%;[^}]*\}/,
+  "mobile audience cards must clear their desktop anchors and fit the viewport",
+);
