@@ -19,6 +19,14 @@ for (const removedEffect of ["hero-drop-track", "hero-drop", "hero-landing-ring"
 assert.match(siteCss, /\.hero-bottle \{ align-items: flex-end; height: 100%; \}/);
 assert.match(siteCss, /\.hero-bottle img \{ height: 100%; max-width: 100%; object-fit: contain; width: auto; \}/);
 
+/* Alexandria paints the final Arabic dots below its reported line box at wide
+   sizes, so the following paragraph needs a desktop-only optical gap. */
+assert.match(
+  siteCss,
+  /@media \(min-width: 761px\)\s*\{\s*html\[dir="rtl"\] \.hero-support \{ margin-top: clamp\(3\.5rem, 4vw, 4\.5rem\); \}\s*\}/,
+  "Arabic desktop hero copy must clear the headline's below-baseline dots",
+);
+
 /* The quality checklist belongs to the dark Al Saqi palette, not a white paper
    surface that visually breaks away from the surrounding section. */
 assert.match(siteCss, /\.lab-sheet \{ background: linear-gradient\(/);

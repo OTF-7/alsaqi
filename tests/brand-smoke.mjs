@@ -35,6 +35,11 @@ assert.ok(joined.includes("775757572"), "phone number must be present");
 assert.ok(joined.includes("www.alsaqiwater.com"), "website must be present");
 assert.match(files.partners, /wa\.me\/967/, "partner CTA must reach WhatsApp");
 assert.match(files.whatsapp, /wa\.me\/967\$\{contact\.phone\}/, "floating WhatsApp button must use the shared contact number");
+assert.match(
+  files.css,
+  /@media \(max-width: 640px\)[\s\S]*?\.whatsapp \{[^}]*bottom:\s*calc\(5\.5rem \+ env\(safe-area-inset-bottom, 0px\)\)/,
+  "mobile WhatsApp control must clear the footer back-to-top button",
+);
 assert.match(files.footer, /tel:\$\{contact\.phone\}|href=\{`tel:/, "footer must expose a tel: link");
 assert.match(files.footer, /mailto:/, "footer must expose a mailto: link");
 

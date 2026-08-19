@@ -183,6 +183,9 @@ html[dir="rtl"] .hero-coordinate-side { transform: rotate(90deg); transform-orig
 .raqi-hero h1 { font-family: var(--font-ar-display); font-size: clamp(3.6rem, 6.7vw, 7.2rem); font-weight: 600; letter-spacing: -.055em; line-height: 1.24; margin-top: 1rem; max-width: 8.5ch; text-wrap: balance; }
 html[dir="ltr"] .raqi-hero h1 { font-family: var(--display); letter-spacing: -.02em; line-height: .9; text-transform: uppercase; }
 .hero-support { color: var(--site-muted); font-size: clamp(.9rem, 1.1vw, 1.06rem); margin-top: 1.4rem; max-width: 48ch; }
+@media (min-width: 761px) {
+  html[dir="rtl"] .hero-support { margin-top: clamp(3.5rem, 4vw, 4.5rem); }
+}
 .hero-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
 .hero-text-link { align-items: center; border-bottom: 1px solid rgb(255 255 255 / 36%); display: inline-flex; font-size: .78rem; font-weight: 700; gap: 1.2rem; padding-block: .75rem .55rem; }
 .hero-text-link b { color: var(--site-lime); }
@@ -685,7 +688,8 @@ html[dir="rtl"] .lens-connectors { transform: scaleX(-1); }
 .lens-values li[data-position="83-85"] { inset-block-start: 85%; inset-inline-start: 83%; }
 .lens-values li[data-position="50-89"] { inset-block-start: 89%; inset-inline-start: 50%; }
 html[dir="rtl"] .lens-values li { --tx: 50%; }
-.lens-values li p { font-size: clamp(.72rem, 1vw, .87rem); }
+.lens-values li p { font-size: clamp(.72rem, 1vw, .87rem); min-width: 0; overflow-wrap: anywhere; }
+html[dir="rtl"] .lens-values li p { line-height: 1.75; }
 .lens-equation { align-self: end; grid-column: 2; margin-top: 1.5rem; position: relative; z-index: 5; }
 
 .factory-stage { margin-inline: calc(50% - 50vw); padding-inline: max(var(--site-gutter), calc((100vw - var(--site-shell)) / 2)); }
@@ -829,7 +833,16 @@ html[dir="ltr"] :is(.product-tabs button, .lens-tabs button)::before { transform
   .lens-connectors { display: none; }
   .lens-center-hex { height: 150px; margin-inline: auto; position: static; transform: none; width: 170px; }
   .lens-values { display: grid; gap: .65rem; margin-top: 1.25rem; position: static; }
-  .lens-values li { inset: auto; min-height: 66px; opacity: 1; position: relative; transform: translateY(var(--lift)); width: 100%; }
+  .lens-values li[data-position] {
+    grid-template-columns: 30px minmax(0, 1fr);
+    inset-block-start: auto;
+    inset-inline-start: auto;
+    min-height: 66px;
+    opacity: 1;
+    position: relative;
+    transform: translateY(var(--lift));
+    width: 100%;
+  }
   .lens-equation { margin-top: 1rem; }
   .factory-stage { padding-inline: var(--site-gutter); }
   .quality-evidence { min-height: 350px; }
