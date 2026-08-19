@@ -183,6 +183,9 @@ html[dir="rtl"] .hero-coordinate-side { transform: rotate(90deg); transform-orig
 .raqi-hero h1 { font-family: var(--font-ar-display); font-size: clamp(3.6rem, 6.7vw, 7.2rem); font-weight: 600; letter-spacing: -.055em; line-height: 1.24; margin-top: 1rem; max-width: 8.5ch; text-wrap: balance; }
 html[dir="ltr"] .raqi-hero h1 { font-family: var(--display); letter-spacing: -.02em; line-height: .9; text-transform: uppercase; }
 .hero-support { color: var(--site-muted); font-size: clamp(.9rem, 1.1vw, 1.06rem); margin-top: 1.4rem; max-width: 48ch; }
+@media (min-width: 761px) {
+  html[dir="rtl"] .hero-support { margin-top: clamp(3.5rem, 4vw, 4.5rem); }
+}
 .hero-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
 .hero-text-link { align-items: center; border-bottom: 1px solid rgb(255 255 255 / 36%); display: inline-flex; font-size: .78rem; font-weight: 700; gap: 1.2rem; padding-block: .75rem .55rem; }
 .hero-text-link b { color: var(--site-lime); }
